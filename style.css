@@ -1,43 +1,52 @@
 body {
-  font-family: 'Questrial', sans-serif;
-  font-size: 30px;
-  color: white;
-  text-shadow: 1px 1px 0 #000,
-               -1px -1px 0 #000,
-               1px -1px 0 #000,
-               -1px 1px 0 #000,
-               1px 1px 0 #000;
+  font-family: 'Trebuchet', sans-serif;
+  font-size: 26px;
+  color: black;
 
   background-image: url('food2.jpg');
   background-size: cover;
 
-  margin: 20px 10px 70px 40px;
   width: 851px;
+  margin-left: 0px;
 }
 
 h1 {
   font-family: 'Fugaz One', cursive;
   font-size: 60px;
+  color: white;
   text-shadow: 2px 2px 0 #000,
                -1px -1px 0 #000,
                1px -1px 0 #000,
                -1px 1px 0 #000,
                1px 1px 0 #000;
 
-  margin-bottom: 66px;
+  margin: 20px 0px 66px 40px;
+}
+
+p {
+  margin: 0px;
 }
 
 div {
-  margin: 20px 10px 20px 40px;
+  margin: 0px 70px 20px 0px;
+  padding: 20px 10px 20px 80px;
+}
+
+div#content {
+    background-color: white;
+    opacity: 0.9;
+
+    border-radius: 0 3 3 0;
 }
 
 div#order-now {
-  border: 1px solid black;
+  border: 1px solid #CD1815;
   border-radius: 2px;
 
   background-color: #E41B17;
-  padding: 5px 7px 5px 6px;
-  display: inline-block
+  display: inline-block;
+  margin: 0px 57px 20px 80px;
+  padding: 7px 14px 7px 12px;
 }
 
 a#order-now-link {
