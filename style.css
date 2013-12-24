@@ -32,6 +32,10 @@ div {
   padding: 20px 10px 20px 80px;
 }
 
+div.moreinfo {
+  font-size: 22px;
+}
+
 div#content {
     background-color: white;
     opacity: 0.9;
