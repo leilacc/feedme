@@ -1,6 +1,6 @@
 <html>
   <head>
-    <link href='http://fonts.googleapis.com/css?family=Fugaz+One'
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100|Fugaz+One'
           rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="style.css" type="text/css">
     <title>plz feed me</title>
@@ -8,29 +8,28 @@
   <body>
     <h1>plz feed me!</h1>
     <div id='content'>
-      <p>
+      <p class='strong'>
         <strong>Delivering delicious food
         to busy people like you.</strong>
       </p>
       <p>
         Tell us when you're hungry and
-        <a href=''>we'll take care of the rest</a>!
+        we'll do the rest:
       </p>
       <div class='moreinfo'>
-        We:
         <ul>
           <li>Find a top-rated restaurant
-          <li>Order food based on your profile
+          <li>Order food you'll love
           <li>Organize delivery
-          <li>Stay within your budget
         </ul>
-        All you need to do is answer the door!
       </div>
+      You just need to answer the door.
+      <form class='front-login'>
+        <input type='text' name='email' placeholder='email'>
+        <input type='password' name='password' placeholder='password'
+         autocomplete="off">
+        <input type='submit' name='login' value='Order now'>
+      </form>
     </div>
-    <a href='/plzfeedme' id='order-now-link'>
-      <div id='order-now'>
-        Order now
-      </div>
-    </a>
   </body>
 </html>

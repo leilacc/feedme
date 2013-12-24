@@ -1,62 +1,72 @@
 body {
-  font-family: 'Trebuchet', sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-size: 26px;
   color: black;
 
   background-image: url('food2.jpg');
   background-size: cover;
 
-  width: 851px;
   margin-left: 0px;
+  margin-right: 0px;
 }
 
 h1 {
   font-family: 'Fugaz One', cursive;
-  font-size: 60px;
+  font-size: 44px;
   color: white;
-  text-shadow: 2px 2px 0 #000,
-               -1px -1px 0 #000,
-               1px -1px 0 #000,
-               -1px 1px 0 #000,
-               1px 1px 0 #000;
+  #text-shadow: 2px 2px 0 #000,
+  #             -1px -1px 0 #000,
+  #             1px -1px 0 #000,
+  #             -1px 1px 0 #000,
+  #             1px 1px 0 #000;
 
-  margin: 20px 0px 66px 40px;
+  margin: 0px 0px 46px 40px;
 }
 
 p {
   margin: 0px;
 }
 
+p.strong {
+  font-size: 40px;
+}
+
 div {
-  margin: 0px 70px 20px 0px;
-  padding: 20px 10px 20px 80px;
+  padding: 20px 0px 20px 80px;
 }
 
 div.moreinfo {
-  font-size: 22px;
+  font-size: 18px;
+  padding: 0px inherit;
 }
 
 div#content {
-    background-color: white;
-    opacity: 0.9;
-
-    border-radius: 0 3 3 0;
+  background-color: white;
+  padding-bottom: 30px;
 }
 
-div#order-now {
-  border: 1px solid #CD1815;
+form.front-login {
+  margin-bottom: 0px;
+  margin-top: 20px;
+}
+
+input {
+  border: 1px solid #999;
   border-radius: 2px;
 
+  font-size: 18px;
+  height: 40px;
+  padding: 16px 10px;
+}
+
+input[type="submit"] {
+  border: 1px solid #CD1815;
   background-color: #E41B17;
+  color: white;
   display: inline-block;
-  margin: 0px 57px 20px 80px;
   padding: 7px 14px 7px 12px;
 }
 
-a#order-now-link {
-  color: white;
-}
-
-div#order-now:hover {
+input[type="submit"]:hover {
   background-color: #CD1815;
 }
