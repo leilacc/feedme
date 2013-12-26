@@ -1,24 +1,19 @@
 body {
+  color: #222;
   font-family: "Lato", Helvetica, Arial, sans-serif;
   font-size: 26px;
-  color: #222;
+  margin: 0px;
+}
 
+body#home {
   background-image: url('food2.jpg');
   background-size: cover;
-
-  margin-left: 0px;
-  margin-right: 0px;
 }
 
 h1 {
+  color: #fff;
   font-family: 'Fugaz One', cursive;
   font-size: 44px;
-  color: #fff;
-  #text-shadow: 2px 2px 0 #000,
-  #             -1px -1px 0 #000,
-  #             1px -1px 0 #000,
-  #             -1px 1px 0 #000,
-  #             1px 1px 0 #000;
 
   margin: 0px 0px 46px 40px;
 }
@@ -35,14 +30,35 @@ div {
   padding: 20px 0px 20px 80px;
 }
 
+div#content {
+  background-color: #fff;
+  padding-bottom: 30px;
+}
+
+div#nav-contents {
+  background-color: #4DBD33;
+  padding: 15px 0px 15px 55px;
+}
+
+div#nav-contents h1 {
+  font-size: 24px;
+  margin: 0px 0px 0px 10px;
+}
+
+div#progress {
+  display: block;
+  margin: 30px auto;
+  padding: 0px;
+  width: 30%;
+}
+
 div.moreinfo {
   font-size: 18px;
   padding: 0px 30px 0px 65px;
 }
 
-div#content {
-  background-color: #fff;
-  padding-bottom: 30px;
+nav a {
+  text-decoration: none;
 }
 
 form.front-login {
@@ -69,4 +85,8 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   background-color: #CD1815;
+}
+
+progress {
+  width: 100%
 }
