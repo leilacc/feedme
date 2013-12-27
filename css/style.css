@@ -3,6 +3,8 @@ body {
   font-family: "Lato", Helvetica, Arial, sans-serif;
   font-size: 26px;
   margin: 0px;
+  background-image: url('gplaypattern.png');
+  background-size: repeat;
 }
 
 body#home {
@@ -27,17 +29,18 @@ p.strong {
 }
 
 div {
+  background-color: #fff;
   padding: 20px 0px 20px 80px;
 }
 
-div#content {
-  background-color: #fff;
+div#home-content {
   padding-bottom: 30px;
 }
 
 div#nav-contents {
   background-color: #4DBD33;
   padding: 15px 0px 15px 55px;
+  margin-bottom: 30px;
 }
 
 div#nav-contents h1 {
@@ -47,7 +50,7 @@ div#nav-contents h1 {
 
 div#progress {
   display: block;
-  margin: 30px auto;
+  margin: auto;
   padding: 0px;
   width: 30%;
 }
@@ -57,16 +60,26 @@ div.moreinfo {
   padding: 0px 30px 0px 65px;
 }
 
+div.page-content {
+  margin: auto;
+  padding: 39px 20px 55px 91px;
+  width: 637px;
+}
+
 nav a {
   text-decoration: none;
 }
 
-form.front-login {
+form {
   margin-bottom: 0px;
   margin-top: 20px;
 }
 
-input {
+form input.zip {
+  width: 80px;
+}
+
+form input, button {
   border: 1px solid #999;
   border-radius: 2px;
 
@@ -75,7 +88,7 @@ input {
   padding: 16px 10px;
 }
 
-input[type="submit"] {
+form input[type="submit"], button {
   border: 1px solid #CD1815;
   background-color: #E41B17;
   color: white;
@@ -83,10 +96,50 @@ input[type="submit"] {
   padding: 7px 14px 7px 12px;
 }
 
-input[type="submit"]:hover {
+form input[type="submit"]:hover, button:hover {
+  background-color: #CD1815;
+}
+
+button {    
+  outline: none;
+  border:none !important;
+  box-shadow:none !important;
+  
+  width: 544px;
+}  
+
+form.register {
+  display: block;
+  margin: 50px auto;
+  padding: 0px;
+  width: 800px;
+}
+
+form.register input {
+  border: 1px solid #999;
+  border-radius: 2px;
+
+  font-size: 18px;
+  height: 40px;
+  padding: 16px 10px;
+}
+
+form.register input[type="submit"] {
+  border: 1px solid #CD1815;
+  background-color: #E41B17;
+  color: white;
+  display: inline-block;
+  padding: 7px 14px 7px 12px;
+}
+
+form.register input[type="submit"]:hover {
   background-color: #CD1815;
 }
 
 progress {
   width: 100%
+}
+
+i.fa-padding {
+  padding-right: 8px;
 }

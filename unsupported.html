@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700|Fugaz+One'
+          rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <title>plz feed me</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div id='nav-contents'>
+        <a href='/'><h1>plz feed me!</h1></a>
+      </div>
+    </nav>
+    <div class="page-content">
+      <p class='strong'>Uh oh</p>
+      <p>
+        Unfortunately, we don't deliver in your area yet.
+      </p>
+      <form class='waitlist'>
+        <button type='submit' name='waitlist'
+                onclick='addToWaitlist(); return false;'>
+          Let me know when you can deliver to me
+        </button>
+      </form>
+    </div>
+    <script type="text/javascript">
+      function addToWaitlist() {
+        var button = document.getElementsByName('waitlist')[0];
+        button.innerHTML = "<i class='fa fa-check fa-padding' style='color:#4DBD33'></i>We'll email you once we can deliver";
+        button.style.backgroundColor = "#333";
+        button.style.borderColor = "#333";
+        return false;
+      };
+    </script>
+  </body>
+</html>
