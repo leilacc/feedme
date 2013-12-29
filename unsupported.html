@@ -12,7 +12,7 @@
         <a href='/'><h1>plz feed me!</h1></a>
       </div>
     </nav>
-    <div class="page-content">
+    <div class="page-content unsupportedbox">
       <p class='strong'>Uh oh</p>
       <p>
         Unfortunately, we don't deliver in your area yet.
@@ -28,7 +28,8 @@
       function addToWaitlist() {
         var button = document.getElementsByName('waitlist')[0];
         button.className = "clicked";
-        button.innerHTML = "<i class='fa fa-check fa-padding' style='color:#4DBD33'></i>We'll email you once we can deliver";
+        button.innerHTML = "<i class='fa fa-check fa-padding' \
+          style='color:#4DBD33'></i>We'll email you once we can deliver";
         button.style.backgroundColor = "#333";
         button.style.borderColor = "#333";
         return false;

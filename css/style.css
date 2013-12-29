@@ -1,7 +1,7 @@
 body {
   color: #222;
   font-family: "Lato", Helvetica, Arial, sans-serif;
-  font-size: 26px;
+  font-size: 24px;
   margin: 0px;
   background-image: url('gplaypattern.png');
   background-size: repeat;
@@ -17,7 +17,7 @@ h1 {
   font-family: 'Fugaz One', cursive;
   font-size: 44px;
 
-  margin: 0px 0px 46px 40px;
+  margin: 18px 0px 58px 40px;
 }
 
 p {
@@ -28,42 +28,71 @@ p.strong {
   font-size: 40px;
 }
 
-div {
-  background-color: #fff;
-  padding: 20px 0px 20px 80px;
+p.subtitle {
+  font-size: 24px;
 }
 
-div#home-content {
-  padding-bottom: 30px;
-}
-
-div#nav-contents {
+.navbar {
   background-color: #4DBD33;
-  padding: 15px 0px 15px 55px;
+  padding: 15px 55px;
   margin-bottom: 30px;
 }
 
-div#nav-contents h1 {
+.navbar h1 {
   font-size: 24px;
   margin: 0px 0px 0px 10px;
 }
 
-div#progress {
-  display: block;
-  margin: auto;
-  padding: 0px;
-  width: 30%;
+.navbar a:hover {
+  text-decoration: none;
+}
+
+.navbar-header {
+  background-color: inherit;
+}
+
+div#nav-contents #nav-links {
+  background-color: inherit;
+  color: #fff;
+  float: right;
+  font-size: 16px;
+  padding: 6px 30px;
+}
+
+div {
+  background-color: #fff;
+}
+
+div#home {
+  padding-bottom: 18px;
+  padding-top: 24px;
+}
+
+div#home-content {
+  margin-left: 40px;
+}
+
+div#order {
 }
 
 div.moreinfo {
   font-size: 18px;
-  padding: 0px 30px 0px 65px;
+  padding: 14px 30px 4px 65px;
 }
 
 div.page-content {
   margin: auto;
+  padding: 39px 40px 55px;
+}
+
+div.unsupportedbox {
   padding: 39px 20px 55px 91px;
-  width: 637px;
+  width: 580px;
+}
+
+div.loginbox {
+  padding: 25px 0px 30px 50px;
+  width: 492px;
 }
 
 nav a {
@@ -76,73 +105,54 @@ form {
 }
 
 form input.zip {
-  width: 80px;
+  width: 100px;
 }
 
 form input, button {
-  border: 1px solid #999;
-  border-radius: 2px;
+  border: 1px solid #aaa;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
 
-  cursor: pointer;
   font-size: 18px;
   height: 40px;
   padding: 16px 10px;
 }
 
-form input[type="submit"], button {
+form input[type='submit'], form button {
   border: 1px solid #CD1815;
   background-color: #E41B17;
   color: white;
+  cursor: pointer;
   display: inline-block;
+  margin-bottom: 10px;
   padding: 7px 14px 7px 12px;
-}
 
-form input[type="submit"]:hover, button:hover {
-  background-color: #CD1815;
-}
-
-button {    
+  # Removes blue glow
   outline: none;
   border:none !important;
   box-shadow:none !important;
-  
-  width: 544px;
-}  
+}
+
+form input[type='submit']:hover, button:hover {
+  background-color: #CD1815;
+}
 
 button.clicked {
   cursor: auto;
 }
 
-form.register {
-  display: block;
-  margin: 50px auto;
-  padding: 0px;
-  width: 800px;
+form.waitlist button {
+  width: 500px;
 }
 
-form.register input {
-  border: 1px solid #999;
-  border-radius: 2px;
-
-  font-size: 18px;
-  height: 40px;
-  padding: 16px 10px;
+form.login button {
+  margin: 10px 3px;
+  width: 426px;
 }
 
-form.register input[type="submit"] {
-  border: 1px solid #CD1815;
-  background-color: #E41B17;
-  color: white;
-  display: inline-block;
-  padding: 7px 14px 7px 12px;
-}
-
-form.register input[type="submit"]:hover {
-  background-color: #CD1815;
-}
-
-progress {
-  width: 100%
+form div {
+  display: inline;
 }
 
 i.fa-padding {

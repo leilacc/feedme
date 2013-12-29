@@ -12,20 +12,17 @@
         <a href='/'><h1>plz feed me!</h1></a>
       </div>
     </nav>
-    <div class="page-content">
-      <p class='strong'>Complete your profile</p>
-
-      <div id='progress'>
-        <progress value="10" max="100"></progress>
-      </div>
-    
+    <div class="page-content loginbox">
       <p>
-        Before we take your order, we need to know a few things.
+        We could not log you in. Please try again.
+      </p>
+      <form class='login'>
+        <input type='text' name='email' placeholder='email'>
+        <input type='password' name='password' placeholder='password'
+         autocomplete="off">
+         <br>
+        <button type='submit' name='login'>Login</button>
+      </form>
     </div>
-    <form class='register'>
-      <input type='text' name='first-name' placeholder='first name'>
-      <input type='text' name='last-name' placeholder='last name'>
-      <input type='submit' name='register' value='Submit'>
-    </form>
   </body>
 </html>
