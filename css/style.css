@@ -94,6 +94,10 @@ p.subtitle {
   background-color: inherit;
 }
 
+button.navbar-toggle {
+  width: auto;
+}
+
 #navbar-collapse {
   background-color: inherit;
   color: #fff;
@@ -165,13 +169,12 @@ div.loginbox {
 
 form {
   margin-bottom: 0px;
-  margin-top: 20px;
 }
 
 span.dollar-sign {
   color: #269EAD;
   font-size: 17px;
-  margin-left: 14px;
+  margin-left: 12px;
 }
 
 div#budget {
@@ -208,8 +211,13 @@ input#budget::-webkit-input-placeholder {
   color: #7DC5CE;
 }
 
+input#order {
+  margin-top: 16px;
+}
+
 form input, button {
   border: 1px solid #aaa;
+  color: #444;
   -webkit-border-radius: 2px;
      -moz-border-radius: 2px;
           border-radius: 2px;
@@ -240,12 +248,12 @@ form input[type='submit']:hover, button:hover {
 }
 
 form button.add-info {
-  background-color: #03B098;
+  background-color: #6BC971;
   width: 100%;
 }
 
 form button.add-info:hover {
-  background-color: #039E89;
+  background-color: #60B566;
 }
 
 button.clicked {

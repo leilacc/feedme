@@ -1874,6 +1874,7 @@ label {
   display: inline-block;
   margin-bottom: 2px;
   font-weight: bold;
+  padding-left: 1px;
 }
 
 input[type="search"] {
@@ -3536,7 +3537,7 @@ input[type="button"].btn-block {
   list-style: none;
   background-color: #ffffff;
   border: 1px solid #cccccc;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid #269EAD;
   border-radius: 4px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -3561,13 +3562,13 @@ input[type="button"].btn-block {
   clear: both;
   font-weight: normal;
   line-height: 1.428571429;
-  color: #333333;
+  color: #269EAD;
   white-space: nowrap;
 }
 
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
-  color: #262626;
+  color: #228E9C;
   text-decoration: none;
   background-color: #f5f5f5;
 }
@@ -3598,6 +3599,7 @@ input[type="button"].btn-block {
 
 .open > .dropdown-menu {
   display: block;
+  width: 100%;
 }
 
 .open > a {
