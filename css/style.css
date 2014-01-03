@@ -1,5 +1,5 @@
 body {
-  color: #222;
+  color: #444;
   font-family: "Lato", Helvetica, Arial, sans-serif;
   font-size: 24px;
   margin: 0px;
@@ -7,9 +7,16 @@ body {
   background-size: repeat;
 }
 
+@media (max-width: 480px) {
+  body {
+    background-image: none;
+  }
+}
+
 body#home {
   background-image: url('food2.jpg');
   background-size: cover;
+  color: #333;
 }
 
 h1 {
@@ -18,6 +25,30 @@ h1 {
   font-size: 44px;
 
   margin: 18px 0px 58px 40px;
+}
+
+@media (max-width: 767px) {
+  h1 {
+    padding-top: 7px;
+  }
+}
+
+h2 {
+  color: #444;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 40px;
+  font-weight: normal;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+h3 {
+  color: #333;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  margin-right: 20px;
+  padding-top: 6px;
 }
 
 p {
@@ -33,14 +64,26 @@ p.subtitle {
 }
 
 .navbar {
-  background-color: #4DBD33;
+  background-color: #4ABB7D;
   padding: 15px 55px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 767px) {
+  .navbar {
+    padding: 12px 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px 12px;
+  }
 }
 
 .navbar h1 {
   font-size: 24px;
-  margin: 0px 0px 0px 10px;
+  margin: 0px 0px 0px 4px;
 }
 
 .navbar a:hover {
@@ -49,6 +92,17 @@ p.subtitle {
 
 .navbar-header {
   background-color: inherit;
+}
+
+#navbar-collapse {
+  background-color: inherit;
+  color: #fff;
+  float: right;
+  font-size: 19px;
+}
+
+nav a {
+  text-decoration: none;
 }
 
 div#nav-contents #nav-links {
@@ -65,7 +119,7 @@ div {
 
 div#home {
   padding-bottom: 18px;
-  padding-top: 24px;
+  padding-top: 12px;
 }
 
 div#home-content {
@@ -73,6 +127,20 @@ div#home-content {
 }
 
 div#order {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px inherit;
+  width: 300px;
+}
+
+div#order-buttons {
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+}
+
+div.page-content {
+  padding: 20px inherit;
 }
 
 div.moreinfo {
@@ -80,7 +148,7 @@ div.moreinfo {
   padding: 14px 30px 4px 65px;
 }
 
-div.page-content {
+div.blurb {
   margin: auto;
   padding: 39px 40px 55px;
 }
@@ -95,17 +163,49 @@ div.loginbox {
   width: 492px;
 }
 
-nav a {
-  text-decoration: none;
-}
-
 form {
   margin-bottom: 0px;
   margin-top: 20px;
 }
 
-form input.zip {
-  width: 100px;
+span.dollar-sign {
+  color: #269EAD;
+  font-size: 17px;
+  margin-left: 14px;
+}
+
+div#budget {
+  border: 1px solid #269EAD;
+  border-radius: 4px;
+}
+
+input#budget {
+  background-color: #fff;
+  border: none;
+  color: #269EAD;
+  display: inline;
+  font-size: 17px;
+  height: 40px;
+  padding-left: 0px;
+  -webkit-box-shadow: none;
+  width: 161px;
+}
+
+input#budget:-moz-placeholder {
+  color: #7DC5CE;
+}
+
+input#budget::-moz-placeholder {
+  color: #7DC5CE;
+  opacity: 1;
+}
+
+input#budget:-ms-input-placeholder {
+  color: #7DC5CE;
+}
+
+input#budget::-webkit-input-placeholder {
+  color: #7DC5CE;
 }
 
 form input, button {
@@ -114,19 +214,20 @@ form input, button {
      -moz-border-radius: 2px;
           border-radius: 2px;
 
-  font-size: 18px;
+  font-size: 17px;
   height: 40px;
+  margin-bottom: 10px;
   padding: 16px 10px;
+  width: 100%;
 }
 
 form input[type='submit'], form button {
-  border: 1px solid #CD1815;
-  background-color: #E41B17;
+  background-color: #E74C54;
   color: white;
   cursor: pointer;
   display: inline-block;
-  margin-bottom: 10px;
   padding: 7px 14px 7px 12px;
+  width: 100%;
 
   # Removes blue glow
   outline: none;
@@ -135,7 +236,16 @@ form input[type='submit'], form button {
 }
 
 form input[type='submit']:hover, button:hover {
-  background-color: #CD1815;
+  background-color: #D0444C;
+}
+
+form button.add-info {
+  background-color: #03B098;
+  width: 100%;
+}
+
+form button.add-info:hover {
+  background-color: #039E89;
 }
 
 button.clicked {
@@ -149,6 +259,10 @@ form.waitlist button {
 form.login button {
   margin: 10px 3px;
   width: 426px;
+}
+
+span.button-contents {
+  float: left;
 }
 
 form div {
