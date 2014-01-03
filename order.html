@@ -41,81 +41,122 @@
         <div class="panel-group" id="accordion">
           <div class="btn-group">
             <button type="button" class="btn btn-default dropdown-toggle order" 
-                    data-toggle="dropdown" id='deliver'>
-
+                    data-toggle="dropdown" id='select-del-addr'>
               <span id='del-addr' class='button-contents'>
                 Delivery address
               </span>
               <div class="caret pull-right"></div>
             </button>
             <ul class="dropdown-menu">
-              <li><a data-toggle="collapse" data-parent="#accordion" href="#collapseAddr">
+              <li><a data-toggle="collapse" data-parent="#accordion"
+                     href="#collapseAddr">
                 <i class="fa fa-plus fa-padding"></i>Add a new address</a>
             </ul>
           </div>
 
-        <div id="collapseAddr" class="panel-collapse collapse">
-          <form id='add-del-addr' class='form-inline' role='form'>
-            <div class='form-group'>
-              <label for="nick">Nickname</label>
-              <input type='text' id='nick' placeholder="home/work/anne's">
-            </div>
+          <div id="collapseAddr" class="panel-collapse collapse">
+            <form id='add-del-addr' class='form-inline' role='form'>
+              <div class='form-group'>
+                <label for="nick">Nickname</label>
+                <input type='text' id='del-addr-nick' placeholder="home/work/anne's">
+              </div>
 
-            <div class='form-group'>
-              <label for="addr">Address</label>
-              <input type='text' id='addr' placeholder="1 Main St">
-            </div>
+              <div class='form-group'>
+                <label for="addr">Address</label>
+                <input type='text' id='addr' placeholder="1 Main St">
+              </div>
 
-            <div class='form-group'>
-              <label for="city">City</label>
-              <input type='text' id='city' placeholder="Boston">
-            </div>
+              <div class='form-group'>
+                <label for="city">City</label>
+                <input type='text' id='city' placeholder="Boston">
+              </div>
 
-            <div class='form-group'>
-              <label for="state">State</label>
-              <input type='text' id='state' placeholder="MA">
-            </div>
+              <div class='form-group'>
+                <label for="state">State</label>
+                <input type='text' id='state' placeholder="MA">
+              </div>
 
-            <div class='form-group'>
-              <label for="zip">Zip</label>
-              <input type='text' id='zip' placeholder="12345">
-            </div>
+              <div class='form-group'>
+                <label for="zip">Zip</label>
+                <input type='text' id='zip' placeholder="12345">
+              </div>
 
-            <div class='form-group'>
-              <label for="phone">Phone</label>
-              <input type='text' id='phone' placeholder="1234567890">
-            </div>
-            <button type='submit' id='new-del-addr' class='add-info'
-                    data-toggle="collapse" data-parent="#accordion"
-                    href="#collapseAddr" onclick='addAddr(); return false;'>
-              Add address
+              <div class='form-group'>
+                <label for="phone">Phone</label>
+                <input type='text' id='phone' placeholder="1234567890">
+              </div>
+              <button type='submit' id='new-del-addr' class='add-info'
+                      data-toggle="collapse" data-parent="#accordion"
+                      href="#collapseAddr" onclick='addAddr(); return false;'>
+                Add address
+              </button>
+            </form>
+          </div><!--collapse-addr-->
+        </div><!--panel-group-->
+
+        <label>Charge</label>
+        <div class="panel-group" id="accordion">
+          <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle order"
+                    data-toggle="dropdown" id='select-card'>
+              <span id='card' class='button-contents'>
+                Credit card
+              </span>
+              <div class="caret pull-right"></div>
             </button>
-          </form>
+            <ul class="dropdown-menu">
+              <li><a data-toggle="collapse" data-parent="#accordion"
+                     href="#collapseCard">
+                <i class="fa fa-plus fa-padding"></i>Add a new credit card</a>
+            </ul>
+          </div>
 
-        </div><!--collapse-panel-->
-      </div><!--panel-group-->
+          <div id="collapseCard" class="panel-collapse collapse">
+            <form id='add-del-addr' class='form-inline' role='form'>
+              <div class='form-group'>
+                <label for="nick">Nickname</label>
+                <input type='text' id='card-nick' placeholder="home/work/anne's">
+              </div>
 
-      <label>Charge</label>
-      <div class="btn-group">
-        <button type="button" class="btn btn-default dropdown-toggle order"
-                data-toggle="dropdown" id='card'>
-          <span class='button-contents'>
-            Credit card
-          </span>
-          <div class="caret pull-right"></div>
-        </button>
-        <ul class="dropdown-menu">
-          <li><a href onclick='addCard(); return false;'>
-            <i class="fa fa-plus fa-padding"></i>Add a new credit card</a>
-        </ul>
-      </div>
+              <div class='form-group'>
+                <label for="addr">Address</label>
+                <input type='text' id='addr' placeholder="1 Main St">
+              </div>
 
-      <label>Budget</label>
-      <div id='budget'>
-        <span class='dollar-sign'>$</span>
-        <input type='text' id='budget' class='form-control'
-               placeholder='20.00'>
-      </div>
+              <div class='form-group'>
+                <label for="city">City</label>
+                <input type='text' id='city' placeholder="Boston">
+              </div>
+
+              <div class='form-group'>
+                <label for="state">State</label>
+                <input type='text' id='state' placeholder="MA">
+              </div>
+
+              <div class='form-group'>
+                <label for="zip">Zip</label>
+                <input type='text' id='zip' placeholder="12345">
+              </div>
+
+              <div class='form-group'>
+                <label for="phone">Phone</label>
+                <input type='text' id='phone' placeholder="1234567890">
+              </div>
+              <button type='submit' id='new-card' class='add-info'
+                      data-toggle="collapse" data-parent="#accordion"
+                      href="#collapseCard" onclick='addCard(); return false;'>
+                Add card
+              </button>
+            </form>
+          </div><!--collapse-addr-->
+        </div><!--panel-group-->
+
+        <label>Budget</label>
+        <div id='budget'>
+          <span class='dollar-sign'>$</span>
+          <input type='text' id='budget' class='form-control'
+                 placeholder='20.00'>
+        </div>
 
   <!--
       <tr><td>
@@ -131,11 +172,10 @@
         </label>
   -->
 
-        <form>
-          <input type='submit' id='order' value='Order'>
-        </form>
-      </div>
-    </div>
+      <form>
+        <input type='submit' id='order' value='Order'>
+      </form>
+    </div><!--order-->
 
   
 
@@ -144,7 +184,14 @@
     <script type="text/javascript">
       function addAddr() {
         var button = document.getElementById('del-addr');
-        var addrNickname = document.getElementById('nick');
+        var addrNickname = document.getElementById('del-addr-nick');
+        button.innerHTML = addrNickname.value;
+        return false;
+      };
+
+      function addCard() {
+        var button = document.getElementById('card');
+        var addrNickname = document.getElementById('card-nick');
         button.innerHTML = addrNickname.value;
         return false;
       };
