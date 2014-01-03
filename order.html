@@ -47,7 +47,7 @@
               </span>
               <div class="caret pull-right"></div>
             </button>
-            <ul class="dropdown-menu">
+            <ul id='del-addr-list' class="dropdown-menu">
               <li><a data-toggle="collapse" data-parent="#accordion"
                      href="#collapseAddr">
                 <i class="fa fa-plus fa-padding"></i>Add a new address</a>
@@ -104,7 +104,7 @@
               </span>
               <div class="caret pull-right"></div>
             </button>
-            <ul class="dropdown-menu">
+            <ul id='card-list' class="dropdown-menu">
               <li><a data-toggle="collapse" data-parent="#accordion"
                      href="#collapseCard">
                 <i class="fa fa-plus fa-padding"></i>Add a new credit card</a>
@@ -183,18 +183,36 @@
     <script src="js/bootstrap.js"></script>
     <script type="text/javascript">
       function addAddr() {
-        var button = document.getElementById('del-addr');
-        var addrNickname = document.getElementById('del-addr-nick');
-        button.innerHTML = addrNickname.value;
+        var addrNickname = document.getElementById('del-addr-nick').value;
+        selectAddr(addrNickname);
+
+        var list = document.getElementById('del-addr-list');
+        list.innerHTML = "<li><a onclick='selectAddr(\"".concat(addrNickname,
+          "\"); return false;'>", addrNickname, "</a>", list.innerHTML);
         return false;
       };
 
+      function selectAddr(addrNickname) {
+        var button = document.getElementById('del-addr');
+        button.innerHTML = addrNickname;
+        return false;
+      }
+
       function addCard() {
-        var button = document.getElementById('card');
-        var addrNickname = document.getElementById('card-nick');
-        button.innerHTML = addrNickname.value;
+        var cardNickname = document.getElementById('card-nick').value;
+        selectCard(cardNickname);
+
+        var list = document.getElementById('card-list');
+        list.innerHTML = "<li><a onclick='selectCard(\"".concat(cardNickname,
+          "\"); return false;'>", cardNickname, "</a>", list.innerHTML);
         return false;
       };
+
+      function selectCard(cardNickname) {
+        var button = document.getElementById('card');
+        button.innerHTML = cardNickname;
+        return false;
+      }
     </script>
   </body>
 </html>
