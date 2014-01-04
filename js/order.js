@@ -34,6 +34,7 @@ function addBillAddrReqs() {
   $('#bill-zip').parsley('addConstraint', { 'required': 'true' });
   $('#bill-phone').parsley('addConstraint', { 'required': 'true' });
 
+  // TODO: change this to parsley
   $('#bill-state').attr('parsley-rangelength','[2,2]')
   $('#bill-zip').attr('parsley-rangelength','[5,5]')
   $('#bill-zip').attr('parsley-type','digits')
@@ -57,6 +58,7 @@ function addCardReqs() {
   $('#card-expiry-mo').parsley('addConstraint', { 'required': 'true' });
   $('#card-expiry-yr').parsley('addConstraint', { 'required': 'true' });
 
+  // TODO: change this to parsley
   $('#card-number').attr('parsley-type','digits')
   $('#card-number').attr('parsley-minlength','15')
   $('#card-cvc').attr('parsley-type','digits')
@@ -89,17 +91,21 @@ function addAddr(delivery) {
   var addrNickname = document.getElementById(prefix + 'addr-nick').value;
   selectAddr(addrNickname, prefix);
 
+  // Add this address to the address drop downs
   if (delivery) {
     var list = document.getElementById('del-addr-list');
     list.innerHTML = "<li><a onclick='selectAddr(\"".concat(addrNickname,
       "\", \"", prefix, "\"); return false;'>", addrNickname, "</a>",
       list.innerHTML);
   }
-
   var billList = document.getElementById('bill-addr-list');
   billList.innerHTML = "<li><a onclick='selectAddr(\"".concat(addrNickname,
     "\", \"", prefix, "\"); return false;'>", addrNickname, "</a>",
     billList.innerHTML);
+
+  // Collapse completed form
+  $('#new-' + prefix + 'addr').attr('href', '#collapse-' + prefix + 'addr');
+  $('#new-' + prefix + 'addr').click();
 
   return false;
 };
@@ -117,6 +123,11 @@ function addCard() {
   var list = document.getElementById('card-list');
   list.innerHTML = "<li><a onclick='selectCard(\"".concat(cardNickname,
     "\"); return false;'>", cardNickname, "</a>", list.innerHTML);
+
+  // Collapse completed form
+  $('#new-card').attr('href', '#collapseCard');
+  $('#new-card').click();
+
   return false;
 };
 

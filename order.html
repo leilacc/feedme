@@ -50,13 +50,13 @@
               </button>
               <ul id='del-addr-list' class="dropdown-menu">
                 <li><a data-toggle="collapse" data-parent="#accordion"
-                       href="#collapseDelAddr"
+                       href="#collapse-del-addr"
                        onclick="addDelAddrReqs(); return false;">
                   <i class="fa fa-plus fa-padding"></i>Add a new address</a>
               </ul>
             </div>
 
-            <div id="collapseDelAddr" class="panel-collapse collapse">
+            <div id="collapse-del-addr" class="panel-collapse collapse">
               <div class='form-group'>
                 <label for="nick">Address nickname</label>
                 <input type='text' id='del-addr-nick'
@@ -161,13 +161,13 @@
                   </button>
                   <ul id='bill-addr-list' class="dropdown-menu">
                     <li><a data-toggle="collapse" data-parent="#accordion"
-                           href="#collapseBillAddr"
+                           href="#collapse-bill-addr"
                            onclick='addBillAddrReqs(); return false;'>
                       <i class="fa fa-plus fa-padding"></i>Add a new address</a>
                   </ul>
                 </div>
 
-                <div id="collapseBillAddr" class="panel-collapse collapse">
+                <div id="collapse-bill-addr" class="panel-collapse collapse">
                   <div class='form-group'>
                     <label for="nick">Address nickname</label>
                     <input type='text' id='bill-addr-nick'
@@ -200,7 +200,7 @@
                   </div>
                   <button type='submit' id='new-bill-addr' class='add-info'
                           data-toggle="collapse" data-parent="#accordion"
-                          href="#collapseBillAddr"
+                          href="#collapse-bill-addr"
                           onclick='addAddr(false); return false;'>
                     Add address
                   </button>
@@ -209,7 +209,7 @@
 
               <button type='submit' id='new-card' class='add-info'
                       data-toggle="collapse" data-parent="#accordion"
-                      href="#collapseCard" onclick='addCard(); return false;'>
+                      onclick='addCard(); return false;'>
                 Add card
               </button>
               <a href>Cancel</a>
