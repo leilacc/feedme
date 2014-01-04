@@ -189,6 +189,7 @@ input#budget {
   display: inline;
   font-size: 17px;
   height: 40px;
+  margin-bottom: 0px;
   padding-left: 0px;
   -webkit-box-shadow: none;
   width: 161px;
@@ -271,10 +272,6 @@ form.login button {
 
 span.button-contents {
   float: left;
-}
-
-form div {
-  display: inline;
 }
 
 i.fa-padding {

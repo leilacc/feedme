@@ -30,10 +30,11 @@
               </ul>
             </div>
             <p>You just need to answer the door.</p>
-            <form class='front-login'>
-              <input type='email' name='email' placeholder='email'>
+            <form parsley-validate class='front-login'>
+              <input type='email' name='email' parsley-type="email"
+                     placeholder='email'>
               <input type='password' name='password' placeholder='password'
-               autocomplete="off">
+               autocomplete="off" parsley-minlength="5">
               <button type='submit' name='login'>Order now</button>
             </form>
           </div>
@@ -48,6 +49,8 @@
       ga('create', 'UA-28361374-4', 'leila.cc');
       ga('send', 'pageview');
     </script>
+    <script src="https://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/parsley.min.js"></script>
   </body>
 </html>

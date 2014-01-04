@@ -37,82 +37,84 @@
       </h2>
 
       <div id='order-buttons'>
-        <label>Deliver to</label>
-        <div class="panel-group" id="accordion">
-          <div class="btn-group">
-            <button type="button" class="btn btn-default dropdown-toggle order" 
-                    data-toggle="dropdown" id='select-del-addr'>
-              <span id='del-addr' class='button-contents'>
-                Delivery address
-              </span>
-              <div class="caret pull-right"></div>
-            </button>
-            <ul id='del-addr-list' class="dropdown-menu">
-              <li><a data-toggle="collapse" data-parent="#accordion"
-                     href="#collapseDelAddr">
-                <i class="fa fa-plus fa-padding"></i>Add a new address</a>
-            </ul>
-          </div>
+        <form parsley-validate class='form-inline'>
+          <label>Deliver to</label>
+          <div class="panel-group" id="accordion">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle order" 
+                      data-toggle="dropdown" id='select-del-addr'>
+                <span id='del-addr' class='button-contents'>
+                  Delivery address
+                </span>
+                <div class="caret pull-right"></div>
+              </button>
+              <ul id='del-addr-list' class="dropdown-menu">
+                <li><a data-toggle="collapse" data-parent="#accordion"
+                       href="#collapseDelAddr"
+                       onclick="addDelAddrReqs(); return false;">
+                  <i class="fa fa-plus fa-padding"></i>Add a new address</a>
+              </ul>
+            </div>
 
-          <div id="collapseDelAddr" class="panel-collapse collapse">
-            <form id='add-del-addr' class='form-inline' role='form'>
+            <div id="collapseDelAddr" class="panel-collapse collapse">
               <div class='form-group'>
                 <label for="nick">Address nickname</label>
-                <input type='text' id='del-addr-nick' placeholder="home/work/anne's">
+                <input type='text' id='del-addr-nick'
+                       placeholder="home/work/anne's">
               </div>
 
               <div class='form-group'>
                 <label for="addr">Address</label>
-                <input type='text' id='addr' placeholder="1 Main St">
+                <input type='text' id='del-addr' placeholder="1 Main St">
               </div>
 
               <div class='form-group'>
                 <label for="city">City</label>
-                <input type='text' id='city' placeholder="Boston">
+                <input type='text' id='del-city' placeholder="Boston">
               </div>
 
               <div class='form-group'>
                 <label for="state">State</label>
-                <input type='text' id='state' placeholder="MA">
+                <input type='text' id='del-state' placeholder="MA">
               </div>
 
               <div class='form-group'>
                 <label for="zip">Zip</label>
-                <input type='text' id='zip' placeholder="12345">
+                <input type='text' id='del-zip' placeholder="12345">
               </div>
 
               <div class='form-group'>
                 <label for="phone">Phone</label>
-                <input type='text' id='phone' placeholder="1234567890">
+                <input type='text' id='del-phone' placeholder="1234567890">
               </div>
               <button type='submit' id='new-del-addr' class='add-info'
                       data-toggle="collapse" data-parent="#accordion"
-                      href="#collapseAddr" onclick='addAddr(); return false;'>
+                      href="#collapseDelAddr"
+                      onclick='addAddr(true); return false;'>
                 Add address
               </button>
-            </form>
-          </div><!--collapse-addr-->
-        </div><!--panel-group-->
+            </div><!--collapse-addr-->
+          </div><!--panel-group-->
 
-        <label>Charge</label>
-        <div class="panel-group" id="accordion">
-          <div class="btn-group">
-            <button type="button" class="btn btn-default dropdown-toggle order"
-                    data-toggle="dropdown" id='select-card'>
-              <span id='card' class='button-contents'>
-                Credit card
-              </span>
-              <div class="caret pull-right"></div>
-            </button>
-            <ul id='card-list' class="dropdown-menu">
-              <li><a data-toggle="collapse" data-parent="#accordion"
-                     href="#collapseCard">
-                <i class="fa fa-plus fa-padding"></i>Add a new credit card</a>
-            </ul>
-          </div>
+          <label>Charge</label>
+          <div class="panel-group" id="accordion">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle order"
+                      data-toggle="dropdown" id='select-card'>
+                <span id='card' class='button-contents'>
+                  Credit card
+                </span>
+                <div class="caret pull-right"></div>
+              </button>
+              <ul id='card-list' class="dropdown-menu">
+                <li><a data-toggle="collapse" data-parent="#accordion"
+                       href="#collapseCard"
+                       onclick="addCardReqs(); return false;">
+                  <i class="fa fa-plus fa-padding"></i>Add a new credit card</a>
+              </ul>
+            </div>
 
-          <div id="collapseCard" class="panel-collapse collapse">
-            <form id='add-card' class='form-inline' role='form'>
+            <div id="collapseCard" class="panel-collapse collapse">
               <div class='form-group'>
                 <label for="card-nick">Card nickname</label>
                 <input type='text' id='card-nick'
@@ -132,13 +134,13 @@
 
               <div class='form-group'>
                 <label for="cvc">CVC security code</label>
-                <input type='text' id='cvc' placeholder="123">
+                <input type='text' id='card-cvc' placeholder="123">
               </div>
 
               <div class='form-group'>
                 <label for="expiry">Expiry month/year</label>
-                <input type='text' id='expiry-mo' placeholder="01">
-                <input type='text' id='expiry-yr' placeholder="2016">
+                <input type='text' id='card-expiry-mo' placeholder="01">
+                <input type='text' id='card-expiry-yr' placeholder="2016">
               </div>
 
               <div class='form-group'>
@@ -160,7 +162,8 @@
                   </button>
                   <ul id='bill-addr-list' class="dropdown-menu">
                     <li><a data-toggle="collapse" data-parent="#accordion"
-                           href="#collapseBillAddr">
+                           href="#collapseBillAddr"
+                           onclick='addBillAddrReqs(); return false;'>
                       <i class="fa fa-plus fa-padding"></i>Add a new address</a>
                   </ul>
                 </div>
@@ -168,7 +171,7 @@
                 <div id="collapseBillAddr" class="panel-collapse collapse">
                   <div class='form-group'>
                     <label for="nick">Address nickname</label>
-                    <input type='text' id='del-addr-nick'
+                    <input type='text' id='bill-addr-nick'
                            placeholder="home/work/anne's">
                   </div>
 
@@ -196,10 +199,10 @@
                     <label for="phone">Phone</label>
                     <input type='text' id='phone' placeholder="1234567890">
                   </div>
-                  <button type='submit' id='new-del-addr' class='add-info'
+                  <button type='submit' id='new-bill-addr' class='add-info'
                           data-toggle="collapse" data-parent="#accordion"
-                          href="#collapseAddr"
-                          onclick='addAddr(); return false;'>
+                          href="#collapseBillAddr"
+                          onclick='addAddr(false); return false;'>
                     Add address
                   </button>
                 </div><!--collapse-addr-->
@@ -211,72 +214,37 @@
                 Add card
               </button>
               <a href>Cancel</a>
-            </form>
-          </div><!--collapse-addr-->
-        </div><!--panel-group-->
+            </div><!--collapse-addr-->
+          </div><!--panel-group-->
 
-        <label>Budget</label>
-        <div id='budget'>
-          <span class='dollar-sign'>$</span>
-          <input type='text' id='budget' class='form-control'
-                 placeholder='20.00'>
-        </div>
+          <label>Budget</label>
+          <div id='budget'>
+            <span class='dollar-sign'>$</span>
+            <input type='text' id='budget' class='form-control' type="number"
+                   required parsley-type="number" placeholder='20.00'>
+          </div>
 
-  <!--
-      <tr><td>
-        <h3>
-          Delivery date:
-        </h3>
-      <td>
-        <label class='radio-inline'>
-          <input type="radio" name='del-time' value='now'>Now 
-        </label>
-        <label class='radio-inline'>
-          <input type="radio" name='del-time' value='future'>Future 
-        </label>
-  -->
+    <!--
+        <tr><td>
+          <h3>
+            Delivery date:
+          </h3>
+        <td>
+          <label class='radio-inline'>
+            <input type="radio" name='del-time' value='now'>Now 
+          </label>
+          <label class='radio-inline'>
+            <input type="radio" name='del-time' value='future'>Future 
+          </label>
+    -->
 
-      <form>
         <input type='submit' id='order' value='Order'>
       </form>
     </div><!--order-->
 
-  
-
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
-    <script type="text/javascript">
-      function addAddr() {
-        var addrNickname = document.getElementById('del-addr-nick').value;
-        selectAddr(addrNickname);
-
-        var list = document.getElementById('del-addr-list');
-        list.innerHTML = "<li><a onclick='selectAddr(\"".concat(addrNickname,
-          "\"); return false;'>", addrNickname, "</a>", list.innerHTML);
-        return false;
-      };
-
-      function selectAddr(addrNickname) {
-        var button = document.getElementById('del-addr');
-        button.innerHTML = addrNickname;
-        return false;
-      }
-
-      function addCard() {
-        var cardNickname = document.getElementById('card-nick').value;
-        selectCard(cardNickname);
-
-        var list = document.getElementById('card-list');
-        list.innerHTML = "<li><a onclick='selectCard(\"".concat(cardNickname,
-          "\"); return false;'>", cardNickname, "</a>", list.innerHTML);
-        return false;
-      };
-
-      function selectCard(cardNickname) {
-        var button = document.getElementById('card');
-        button.innerHTML = cardNickname;
-        return false;
-      }
-    </script>
+    <script src="js/order.js"></script>
+    <script src="js/parsley.min.js"></script>
   </body>
 </html>
