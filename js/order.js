@@ -1,75 +1,112 @@
 function addDelAddrReqs() {
-    document.getElementById('del-addr-nick').required = true;
-    document.getElementById('del-addr').required = true;
-    document.getElementById('del-city').required = true;
-    document.getElementById('del-state').required = true;
-    document.getElementById('del-zip').required = true;
-    document.getElementById('del-phone').required = true;
-    $('#del-state').attr('parsley-rangelength','[2,2]')
-    $('#del-zip').attr('parsley-rangelength','[5,5]')
-    $('#del-zip').attr('parsley-type','digits')
-    $('#del-phone').attr('parsley-type','phone')
+  $('form').parsley('addItem', '#del-addr-nick');
+  $('form').parsley('addItem', '#del-addr');
+  $('form').parsley('addItem', '#del-city');
+  $('form').parsley('addItem', '#del-state');
+  $('form').parsley('addItem', '#del-zip');
+  $('form').parsley('addItem', '#del-phone');
+
+  $('#del-addr-nick').parsley('addConstraint', { 'required': 'true' });
+  $('#del-addr').parsley('addConstraint', { 'required': 'true' });
+  $('#del-city').parsley('addConstraint', { 'required': 'true' });
+  $('#del-state').parsley('addConstraint', { 'required': 'true' });
+  $('#del-zip').parsley('addConstraint', { 'required': 'true' });
+  $('#del-phone').parsley('addConstraint', { 'required': 'true' });
+
+//  $('#del-state').parsley('addConstraint', {'rangelength': '[2,2]'});
+//  $('#del-zip').parsley('addConstraint', {'rangelength': '[5,5]'});
+  $('#del-zip').parsley('addConstraint', {'type': 'digits'});
+  $('#del-phone').parsley('addConstraint', {'type': 'phone'});
 }
 
 function addBillAddrReqs() {
-    document.getElementById('bill-addr-nick').required = true;
-    document.getElementById('bill-addr').required = true;
-    document.getElementById('bill-city').required = true;
-    document.getElementById('bill-state').required = true;
-    document.getElementById('bill-zip').required = true;
-    document.getElementById('bill-phone').required = true;
-    $('#bill-state').attr('parsley-rangelength','[2,2]')
-    $('#bill-zip').attr('parsley-rangelength','[5,5]')
-    $('#bill-zip').attr('parsley-type','digits')
-    $('#bill-phone').attr('parsley-type','phone')
+  $('form').parsley('addItem', '#bill-addr-nick');
+  $('form').parsley('addItem', '#bill-addr');
+  $('form').parsley('addItem', '#bill-city');
+  $('form').parsley('addItem', '#bill-state');
+  $('form').parsley('addItem', '#bill-zip');
+  $('form').parsley('addItem', '#bill-phone');
+
+  $('#bill-addr-nick').parsley('addConstraint', { 'required': 'true' });
+  $('#bill-addr').parsley('addConstraint', { 'required': 'true' });
+  $('#bill-city').parsley('addConstraint', { 'required': 'true' });
+  $('#bill-state').parsley('addConstraint', { 'required': 'true' });
+  $('#bill-zip').parsley('addConstraint', { 'required': 'true' });
+  $('#bill-phone').parsley('addConstraint', { 'required': 'true' });
+
+  $('#bill-state').attr('parsley-rangelength','[2,2]')
+  $('#bill-zip').attr('parsley-rangelength','[5,5]')
+  $('#bill-zip').attr('parsley-type','digits')
+  $('#bill-phone').attr('parsley-type','phone')
 }
 
 function addCardReqs() {
-    document.getElementById('card-nick').required = true;
-    document.getElementById('card-name').required = true;
-    document.getElementById('card-type').required = true;
-    document.getElementById('card-number').required = true;
-    document.getElementById('card-cvc').required = true;
-    document.getElementById('card-expiry-mo').required = true;
-    document.getElementById('card-expiry-yr').required = true;
-    $('#card-number').attr('parsley-type','digits')
-    $('#card-number').attr('parsley-minlength','15')
-    $('#card-cvc').attr('parsley-type','digits')
-    $('#card-cvc').attr('parsley-rangelength','[3,3]')
-    $('#card-expiry-mo').attr('parsley-type','digits')
-    $('#card-expiry-mo').attr('parsley-rangelength','[2,2]')
-    $('#card-expiry-yr').attr('parsley-type','digits')
-    $('#card-expiry-yr').attr('parsley-rangelength','[4,4]')
+  $('form').parsley('addItem', '#card-nick');
+  $('form').parsley('addItem', '#card-name');
+  $('form').parsley('addItem', '#card-type');
+  $('form').parsley('addItem', '#card-number');
+  $('form').parsley('addItem', '#card-cvc');
+  $('form').parsley('addItem', '#card-expiry-mo');
+  $('form').parsley('addItem', '#card-expiry-yr');
+
+  $('#card-nick').parsley('addConstraint', { 'required': 'true' });
+  $('#card-name').parsley('addConstraint', { 'required': 'true' });
+  $('#card-type').parsley('addConstraint', { 'required': 'true' });
+  $('#card-number').parsley('addConstraint', { 'required': 'true' });
+  $('#card-cvc').parsley('addConstraint', { 'required': 'true' });
+  $('#card-expiry-mo').parsley('addConstraint', { 'required': 'true' });
+  $('#card-expiry-yr').parsley('addConstraint', { 'required': 'true' });
+
+  $('#card-number').attr('parsley-type','digits')
+  $('#card-number').attr('parsley-minlength','15')
+  $('#card-cvc').attr('parsley-type','digits')
+  $('#card-cvc').attr('parsley-rangelength','[3,3]')
+  $('#card-expiry-mo').attr('parsley-type','digits')
+  $('#card-expiry-mo').attr('parsley-rangelength','[2,2]')
+  $('#card-expiry-yr').attr('parsley-type','digits')
+  $('#card-expiry-yr').attr('parsley-rangelength','[4,4]')
+}
+
+function validateAddrFields(prefix) {
+  result = true;
+  result = result && $('#' + prefix + 'addr-nick').parsley('validate');
+  result = result && $('#' + prefix + 'addr').parsley('validate');
+  result = result && $('#' + prefix + 'city').parsley('validate');
+  result = result && $('#' + prefix + 'state').parsley('validate');
+  result = result && $('#' + prefix + 'zip').parsley('validate');
+  result = result && $('#' + prefix + 'phone').parsley('validate');
+  console.log(result);
+  return result;
 }
 
 function addAddr(delivery) {
-  if (delivery) {
-    var addrNickname = document.getElementById('del-addr-nick').value;
-  } else {
-    var addrNickname = document.getElementById('bill-addr-nick').value;
+  var prefix = (delivery) ? 'del-' : 'bill-';
+  if (!validateAddrFields(prefix)) {
+    // At least one field was not validated
+    return false;
   }
-  selectAddr(addrNickname, delivery);
+
+  var addrNickname = document.getElementById(prefix + 'addr-nick').value;
+  selectAddr(addrNickname, prefix);
 
   if (delivery) {
     var list = document.getElementById('del-addr-list');
     list.innerHTML = "<li><a onclick='selectAddr(\"".concat(addrNickname,
-      "\", true); return false;'>", addrNickname, "</a>", list.innerHTML);
+      "\", \"", prefix, "\"); return false;'>", addrNickname, "</a>",
+      list.innerHTML);
   }
 
   var billList = document.getElementById('bill-addr-list');
   billList.innerHTML = "<li><a onclick='selectAddr(\"".concat(addrNickname,
-    "\", false); return false;'>", addrNickname, "</a>", billList.innerHTML);
+    "\", \"", prefix, "\"); return false;'>", addrNickname, "</a>",
+    billList.innerHTML);
 
   return false;
 };
 
-function selectAddr(addrNickname, delivery) {
-  if (delivery) {
-    var button = document.getElementById('del-addr');
-  } else {
-    var button = document.getElementById('bill-addr');
-  }
-  button.innerHTML = addrNickname;
+function selectAddr(addrNickname, prefix) {
+  var label = document.getElementById(prefix + 'addr-selected');
+  label.innerHTML = addrNickname;
   return false;
 }
 

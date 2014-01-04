@@ -43,7 +43,7 @@
             <div class="btn-group">
               <button type="button" class="btn btn-default dropdown-toggle order" 
                       data-toggle="dropdown" id='select-del-addr'>
-                <span id='del-addr' class='button-contents'>
+                <span id='del-addr-selected' class='button-contents'>
                   Delivery address
                 </span>
                 <div class="caret pull-right"></div>
@@ -89,7 +89,6 @@
               </div>
               <button type='submit' id='new-del-addr' class='add-info'
                       data-toggle="collapse" data-parent="#accordion"
-                      href="#collapseDelAddr"
                       onclick='addAddr(true); return false;'>
                 Add address
               </button>
@@ -155,7 +154,7 @@
                   <button type="button"
                           class="btn btn-default dropdown-toggle order" 
                           data-toggle="dropdown" id='select-bill-addr'>
-                    <span id='bill-addr' class='button-contents'>
+                    <span id='bill-addr-selected' class='button-contents'>
                       Billing address
                     </span>
                     <div class="caret pull-right"></div>
@@ -218,10 +217,11 @@
           </div><!--panel-group-->
 
           <label>Budget</label>
-          <div id='budget'>
+          <div id='budget-div'>
             <span class='dollar-sign'>$</span>
             <input type='text' id='budget' class='form-control' type="number"
-                   required parsley-type="number" placeholder='20.00'>
+                   parsley-required='true' parsley-type="number"
+                   placeholder='20.00'>
           </div>
 
     <!--
