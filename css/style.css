@@ -167,6 +167,10 @@ div#order-buttons {
   width: 200px;
 }
 
+div#collapse-del-addr {
+  margin-bottom: 20px;
+}
+
 div.page-content {
   padding: 20px inherit;
 }
@@ -286,6 +290,10 @@ button.clicked {
   cursor: auto;
 }
 
+button#new-del-addr {
+  margin-top: 10px;
+}
+
 form.waitlist button {
   width: 500px;
 }
@@ -318,4 +326,10 @@ i.xsmall {
   list-style-type: none;
   margin-bottom: 7px;
   padding-left: 0px;
+}
+
+a#cancel-new-del-addr {
+  color: #444;
+  float: right;
+  font-size: 14px;
 }
