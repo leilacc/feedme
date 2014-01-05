@@ -88,6 +88,16 @@ function addAddr(delivery) {
     return false;
   }
 
+  // Collapse completed form
+  if (!$('#new-' + prefix + 'addr').attr('href')) {
+    $('#new-' + prefix + 'addr').attr('href', '#collapse-' + prefix + 'addr');
+    $('#new-' + prefix + 'addr').click();
+  } else {
+    // This is a loop
+  //  $('#new-' + prefix + 'addr').attr('href', null);
+    //return false;
+  }
+
   var addrNickname = document.getElementById(prefix + 'addr-nick').value;
   selectAddr(addrNickname, prefix);
 
@@ -102,10 +112,6 @@ function addAddr(delivery) {
   billList.innerHTML = "<li><a onclick='selectAddr(\"".concat(addrNickname,
     "\", \"", prefix, "\"); return false;'>", addrNickname, "</a>",
     billList.innerHTML);
-
-  // Collapse completed form
-  $('#new-' + prefix + 'addr').attr('href', '#collapse-' + prefix + 'addr');
-  $('#new-' + prefix + 'addr').click();
 
   return false;
 };
