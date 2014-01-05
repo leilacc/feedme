@@ -113,10 +113,10 @@
               <label>Budget</label>
               <div id='budget-div'>
                 <span class='dollar-sign'>$</span>
-                <input type='text' id='budget' class='form-control'
-                       type="number"
+                <input id='budget' class='form-control'
+                       type="text" value='20.00'
                        parsley-required='true' parsley-type="number"
-                       placeholder='20.00'>
+                       onclick='$("#budget").val("");'>
               </div>
 
   <!--

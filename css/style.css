@@ -224,23 +224,6 @@ input#budget {
   width: 161px;
 }
 
-input#budget:-moz-placeholder {
-  color: #7DC5CE;
-}
-
-input#budget::-moz-placeholder {
-  color: #7DC5CE;
-  opacity: 1;
-}
-
-input#budget:-ms-input-placeholder {
-  color: #7DC5CE;
-}
-
-input#budget::-webkit-input-placeholder {
-  color: #7DC5CE;
-}
-
 input#find-food {
   margin-top: 16px;
 }
