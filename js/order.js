@@ -88,16 +88,11 @@ function addAddr(delivery) {
     return false;
   }
 
-  // Collapse completed form
-  if (!$('#new-' + prefix + 'addr').attr('href')) {
-    $('#new-' + prefix + 'addr').attr('href', '#collapse-' + prefix + 'addr');
-    $('#new-' + prefix + 'addr').click();
-  } else {
-    // This is a loop
-  //  $('#new-' + prefix + 'addr').attr('href', null);
-    //return false;
-  }
+  // Collapse completed form, uncollapse budget
+  $('#collapse-' + prefix + 'addr').collapse('hide');
+  $('#collapseBudget').collapse('show');
 
+  // Change button to show that the new address is selected
   var addrNickname = document.getElementById(prefix + 'addr-nick').value;
   selectAddr(addrNickname, prefix);
 

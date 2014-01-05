@@ -57,7 +57,9 @@
               <ul id='del-addr-list' class="dropdown-menu">
                 <li><a data-toggle="collapse" data-parent="#accordion"
                        href="#collapse-del-addr"
-                       onclick="addDelAddrReqs(); return false;">
+                       onclick="addDelAddrReqs();
+                                $('#collapseBudget').collapse('hide');
+                                return false;">
                   <i class="fa fa-plus fa-padding-right"></i>Add a new address</a>
               </ul>
             </div>
@@ -99,36 +101,40 @@
                 Add address
               </button>
               <a id='cancel-new-del-addr' href="#collapse-del-addr"
-                 data-toggle="collapse" data-parent="#accordion">
+                 data-toggle="collapse" data-parent="#accordion"
+                 onclick="$('#collapseBudget').collapse('show');">
                 Cancel
               </a>
             </div><!--collapse-addr-->
           </div><!--panel-group-->
 
-          <label>Budget</label>
-          <div id='budget-div'>
-            <span class='dollar-sign'>$</span>
-            <input type='text' id='budget' class='form-control' type="number"
-                   parsley-required='true' parsley-type="number"
-                   placeholder='20.00'>
-          </div>
+          <div class="panel-group" id="accordion">
+            <div id="collapseBudget" class="panel-collapse collapse in">
+              <label>Budget</label>
+              <div id='budget-div'>
+                <span class='dollar-sign'>$</span>
+                <input type='text' id='budget' class='form-control'
+                       type="number"
+                       parsley-required='true' parsley-type="number"
+                       placeholder='20.00'>
+              </div>
 
-    <!--
-        <tr><td>
-          <h3>
-            Delivery date:
-          </h3>
-        <td>
-          <label class='radio-inline'>
-            <input type="radio" name='del-time' value='now'>Now 
-          </label>
-          <label class='radio-inline'>
-            <input type="radio" name='del-time' value='future'>Future 
-          </label>
-    -->
+  <!--
+      <tr><td>
+        <h3>
+          Delivery date:
+        </h3>
+      <td>
+        <label class='radio-inline'>
+          <input type="radio" name='del-time' value='now'>Now 
+        </label>
+        <label class='radio-inline'>
+          <input type="radio" name='del-time' value='future'>Future 
+        </label>
+  -->
 
-        <input type='submit' id='find-food' value='Find food near me!'>
-      </form>
+              <input type='submit' id='find-food' value='Find food near me!'>
+            </form>
     </div><!--order-->
 
     <script src="https://code.jquery.com/jquery.js"></script>
