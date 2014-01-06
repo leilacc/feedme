@@ -3,3 +3,19 @@ remove parsley validation on addr collapse
 fix homepage
 
 redo mobile css
+
+make choose form
+
+make order form
+
+make food profile page
+
+make dynamic
+
+serve on node
+
+link with qq's code
+
+--longterm--
+add edit, remove buttons to addresses and card dropdowns
+add pre-order (future, not asap)

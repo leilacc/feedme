@@ -121,7 +121,7 @@ div {
 }
 
 div#home {
-  padding-bottom: 18px;
+  padding-bottom: 22px;
   padding-top: 12px;
 }
 
@@ -199,10 +199,6 @@ div.loginbox {
   width: 492px;
 }
 
-form {
-  margin-bottom: 0px;
-}
-
 span.dollar-sign {
   color: #269EAD;
   font-size: 17px;
@@ -230,6 +226,18 @@ input#budget {
 
 input#find-food {
   margin-top: 16px;
+}
+
+input.index {
+  width: 200px;
+}
+
+form {
+  margin-bottom: 0px;
+}
+
+form.front-login {
+  margin-top: 14px;
 }
 
 form input, button {
@@ -273,12 +281,16 @@ form button.add-info:hover {
   background-color: #60B566;
 }
 
-button.clicked {
-  cursor: auto;
+button#index {
+  width: 125px;
 }
 
 button#new-del-addr {
   margin-top: 10px;
+}
+
+button.clicked {
+  cursor: auto;
 }
 
 form.waitlist button {
