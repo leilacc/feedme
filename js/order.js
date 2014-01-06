@@ -26,12 +26,12 @@ function customParsley() {
 }
 
 function addDelAddrReqs() {
-  $('form').parsley('addItem', '#del-addr-nick');
-  $('form').parsley('addItem', '#del-addr');
-  $('form').parsley('addItem', '#del-city');
-  $('form').parsley('addItem', '#del-state');
-  $('form').parsley('addItem', '#del-zip');
-  $('form').parsley('addItem', '#del-phone');
+  $('#find-food-form').parsley('addItem', '#del-addr-nick');
+  $('#find-food-form').parsley('addItem', '#del-addr');
+  $('#find-food-form').parsley('addItem', '#del-city');
+  $('#find-food-form').parsley('addItem', '#del-state');
+  $('#find-food-form').parsley('addItem', '#del-zip');
+  $('#find-food-form').parsley('addItem', '#del-phone');
 
   $('#del-addr-nick').parsley('addConstraint', { 'required': 'true' });
   $('#del-addr').parsley('addConstraint', { 'required': 'true' });
@@ -48,12 +48,12 @@ function addDelAddrReqs() {
 function removeDelAddrReqs() {
   console.log('removing');
 
-  $('form').parsley('removeItem', '#del-addr-nick');
-  $('form').parsley('removeItem', '#del-addr');
-  $('form').parsley('removeItem', '#del-city');
-  $('form').parsley('removeItem', '#del-state');
-  $('form').parsley('removeItem', '#del-zip');
-  $('form').parsley('removeItem', '#del-phone');
+  $('#find-food-form').parsley('removeItem', '#del-addr-nick');
+  $('#find-food-form').parsley('removeItem', '#del-addr');
+  $('#find-food-form').parsley('removeItem', '#del-city');
+  $('#find-food-form').parsley('removeItem', '#del-state');
+  $('#find-food-form').parsley('removeItem', '#del-zip');
+  $('#find-food-form').parsley('removeItem', '#del-phone');
 
   $('#del-addr-nick').parsley('removeConstraint', { 'required': 'true' });
   $('#del-addr').parsley('removeConstraint', { 'required': 'true' });
@@ -68,12 +68,12 @@ function removeDelAddrReqs() {
 }
 
 function addBillAddrReqs() {
-  $('form').parsley('addItem', '#bill-addr-nick');
-  $('form').parsley('addItem', '#bill-addr');
-  $('form').parsley('addItem', '#bill-city');
-  $('form').parsley('addItem', '#bill-state');
-  $('form').parsley('addItem', '#bill-zip');
-  $('form').parsley('addItem', '#bill-phone');
+  $('#order-form').parsley('addItem', '#bill-addr-nick');
+  $('#order-form').parsley('addItem', '#bill-addr');
+  $('#order-form').parsley('addItem', '#bill-city');
+  $('#order-form').parsley('addItem', '#bill-state');
+  $('#order-form').parsley('addItem', '#bill-zip');
+  $('#order-form').parsley('addItem', '#bill-phone');
 
   $('#bill-addr-nick').parsley('addConstraint', { 'required': 'true' });
   $('#bill-addr').parsley('addConstraint', { 'required': 'true' });
@@ -90,13 +90,13 @@ function addBillAddrReqs() {
 }
 
 function addCardReqs() {
-  $('form').parsley('addItem', '#card-nick');
-  $('form').parsley('addItem', '#card-name');
-  $('form').parsley('addItem', '#card-type');
-  $('form').parsley('addItem', '#card-number');
-  $('form').parsley('addItem', '#card-cvc');
-  $('form').parsley('addItem', '#card-expiry-mo');
-  $('form').parsley('addItem', '#card-expiry-yr');
+  $('#order-form').parsley('addItem', '#card-nick');
+  $('#order-form').parsley('addItem', '#card-name');
+  $('#order-form').parsley('addItem', '#card-type');
+  $('#order-form').parsley('addItem', '#card-number');
+  $('#order-form').parsley('addItem', '#card-cvc');
+  $('#order-form').parsley('addItem', '#card-expiry-mo');
+  $('#order-form').parsley('addItem', '#card-expiry-yr');
 
   $('#card-nick').parsley('addConstraint', { 'required': 'true' });
   $('#card-name').parsley('addConstraint', { 'required': 'true' });
@@ -128,10 +128,23 @@ function checkDelAddr() {
     $('#budget').parsley('validate');
   } else {
     // Delivery address has been selected
-    // No need to validate budget as parsley does this automatically on submit
-    $('#order-form').submit();
+    if ($('#budget').parsley('validate')) {
+      // Budget is also valid, can submit form
+      // TODO: make this submit asynchronous
+      // $('#order-form').submit();
+      transition('find', 'choose');
+    }
   }
   return true;
+}
+
+function transition(prevPrefix, nextPrefix) {
+  // Transitions between find and choose, or choose and order
+  $('#' + prevPrefix + '-food-prog').removeClass('food-prog-cur');
+  $('#' + nextPrefix + '-food-prog').addClass('food-prog-cur');
+
+  $('#' + prevPrefix + '-food-buttons').hide();
+  $('#' + nextPrefix + '-food-buttons').fadeIn();
 }
 
 function removeDelAddrError() {

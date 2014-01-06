@@ -1,14 +1,12 @@
 remove parsley validation on addr collapse
 
-redo mobile css
-
 make choose form
 
 make order form
 
 make food profile page
 
-make dynamic
+serve dynamically
 
 serve on node
 
@@ -16,5 +14,7 @@ link with qq's code
 
 --longterm--
 fix firefox css/transition issues
+add remove button to food items in the choose menu
+add back button to choose menu
 add edit, remove buttons to addresses and card dropdowns
 add pre-order (future, not asap)

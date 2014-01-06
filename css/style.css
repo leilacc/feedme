@@ -114,52 +114,6 @@ div {
   background-color: #fff;
 }
 
-div#order-box {
-  background-color: #eee;
-  border-radius: 3px;
-  margin: 60px auto 100px;
-  padding: 6px;
-  width: 312px;
-}
-
-div#ordering-progress {
-  background-color: #eee;
-  color: #ccc;
-  font-size: 17px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 14px 48px;
-  width: 300px;
-}
-
-span.food-prog-cur {
-  color: #555;
-  font-weight: bold;
-}
-
-div#order {
-  border-radius: 3px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 20px;
-  padding-top: 14px;
-  width: 300px;
-}
-
-div#order-buttons {
-  margin-left: auto;
-  margin-right: auto;
-  width: 200px;
-}
-
-div#del-addr-btn {
-  display: block;
-}
-
-div#collapse-del-addr {
-  margin-bottom: 20px;
-}
-
 div.page-content {
   padding: 20px inherit;
 }
@@ -179,50 +133,8 @@ div.unsupportedbox {
   width: 580px;
 }
 
-div.loginbox {
-  padding: 25px 0px 30px 50px;
-  width: 492px;
-}
-
-span.dollar-sign {
-  color: #269EAD;
-  font-size: 17px;
-  margin-left: 12px;
-}
-
-div#budget-div {
-  border: 1px solid #269EAD;
-  border-radius: 4px;
-  margin-bottom: 4px;
-}
-
-input#budget {
-  background-color: #fff;
-  border: none;
-  color: #269EAD;
-  display: inline;
-  font-size: 17px;
-  height: 40px;
-  margin-bottom: 0px;
-  padding-left: 0px;
-  -webkit-box-shadow: none;
-  width: 161px;
-}
-
-input#find-food {
-  margin-top: 16px;
-}
-
-input.index {
-  width: 200px;
-}
-
 form {
   margin-bottom: 0px;
-}
-
-form.front-login {
-  margin-top: 14px;
 }
 
 form input, button {
@@ -266,25 +178,12 @@ form button.add-info:hover {
   background-color: #60B566;
 }
 
-button#index {
-  width: 125px;
-}
-
-button#new-del-addr {
-  margin-top: 10px;
-}
-
 button.clicked {
   cursor: auto;
 }
 
 form.waitlist button {
   width: 500px;
-}
-
-form.login button {
-  margin: 10px 3px;
-  width: 426px;
 }
 
 span.button-contents {
@@ -303,17 +202,11 @@ i.xsmall {
   font-size: 12px;
 }
 
- ul.parsley-error-list {
+ul.parsley-error-list {
   color: #E74C54;
   float: left;
   font-size: 14px;
   list-style-type: none;
   margin-bottom: 7px;
   padding-left: 0px;
-}
-
-a#cancel-new-del-addr {
-  color: #444;
-  float: right;
-  font-size: 14px;
 }

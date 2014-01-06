@@ -14,6 +14,28 @@ div#home-content {
   margin-left: 120px;
 }
 
+div.loginbox {
+  padding: 25px 0px 30px 50px;
+  width: 492px;
+}
+
+form.front-login {
+  margin-top: 14px;
+}
+
+form.login button {
+  margin: 10px 3px;
+  width: 426px;
+}
+
+input.index {
+  width: 200px;
+}
+
+button#index {
+  width: 125px;
+}
+
 @media (max-width: 900px) {
   h1 {
     font-size: 36px;

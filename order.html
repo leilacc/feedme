@@ -6,6 +6,7 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700|Fugaz+One'
           rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/order.css" type="text/css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <title>plz feed me</title>
   </head>
@@ -41,8 +42,11 @@
     </div>
 
     <div id='order'>
-      <div id='order-buttons'>
-        <form parsley-validate id='order-form' class='form-inline'>
+<!--
+      <div id='find-food-buttons' class='food-buttons'>
+-->
+      <div id='find-food-buttons' class='food-buttons' style='display: none;'>
+        <form parsley-validate id='find-food-form' class='form-inline'>
           <label>Deliver to</label>
           <div class="panel-group" id="accordion">
             <div id='del-addr-btn' class="btn-group"
@@ -145,6 +149,48 @@
               <input type='submit' id='find-food' value='Find food near me!'
                      onclick='checkDelAddr(); return false;'>
             </form>
+          </div>
+        </div>
+      </div>
+
+<!--
+      <div id='choose-food-buttons' class='food-buttons' style='display: none;'>
+-->
+      <div id='choose-food-buttons' class='food-buttons'>
+        <div class='choose-section'>
+          <label>Restaurant</label>
+            <div id='restaurant-name' class='choose-values'>
+              McDonald's
+            </div>
+          </div>
+
+        <div class='choose-section'>
+          <label>Order</label>
+            <div id='choose-order' class='choose-values'>
+              <ul id='choose-order-list'>
+                <li>Hamburger
+                <li>Fries
+              </ul>
+            </div>
+        </div>
+
+        <div class='choose-section'>
+          <label>Price</label>
+            <div id='choose-price' class='choose-values'>
+              $10.44
+            </div>
+        </div>
+
+        <form id='choose-food-form' class='form-inline'>
+          <button type="button" id='choose-refresh'
+                  title='find different food'>
+            <i class="fa fa-refresh"></i>
+          </button>
+          <input type='submit' id='choose-food' value='I want this'
+                 onclick='return false;'>
+        </form><!--choose food form-->
+      </div>
+    
     </div><!--order-->
 
     <script src="https://code.jquery.com/jquery.js"></script>
