@@ -2,7 +2,7 @@ remove parsley validation on addr collapse
 
 validate all addr fields on add new addr (cur 1 at a time) 
 
-add requirement to delivery address
+jump to unvalidated field on addr submit
 
 fix homepage
 

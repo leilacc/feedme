@@ -9,7 +9,7 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <title>plz feed me</title>
   </head>
-  <body>
+  <body onload='customParsley(); return false;'>
 
     <nav class="navbar navbar-default" role="navigation">
       <div class="navbar-header">
@@ -42,10 +42,11 @@
 
     <div id='order'>
       <div id='order-buttons'>
-        <form parsley-validate class='form-inline'>
+        <form parsley-validate id='order-form' class='form-inline'>
           <label>Deliver to</label>
           <div class="panel-group" id="accordion">
-            <div class="btn-group">
+            <div id='del-addr-btn' class="btn-group"
+                 onclick="$('#del-addr-btn').css('display', 'inline-block');">
               <button type="button"
                       class="btn btn-default dropdown-toggle order" 
                       data-toggle="dropdown" id='select-del-addr'>
@@ -59,10 +60,17 @@
                        href="#collapse-del-addr"
                        onclick="addDelAddrReqs();
                                 $('#collapseBudget').collapse('hide');
+                                $('#del-addr-error').hide();
                                 return false;">
                   <i class="fa fa-plus fa-padding-right"></i>Add a new address</a>
               </ul>
             </div>
+            <ul id="del-addr-error" class="parsley-error-list"
+                style='display: none;'>
+              <li class="required" style="display: list-item;">
+                Choose a delivery address
+              </li>
+            </ul>
 
             <div id="collapse-del-addr" class="panel-collapse collapse">
               <div class='form-group'>
@@ -102,7 +110,8 @@
               </button>
               <a id='cancel-new-del-addr' href="#collapse-del-addr"
                  data-toggle="collapse" data-parent="#accordion"
-                 onclick="$('#collapseBudget').collapse('show');">
+                 onclick="$('#collapseBudget').collapse('show');
+                          removeDelAddrReqs();">
                 Cancel
               </a>
             </div><!--collapse-addr-->
@@ -133,7 +142,8 @@
         </label>
   -->
 
-              <input type='submit' id='find-food' value='Find food near me!'>
+              <input type='submit' id='find-food' value='Find food near me!'
+                     onclick='checkDelAddr(); return false;'>
             </form>
     </div><!--order-->
 

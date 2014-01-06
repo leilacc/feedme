@@ -167,6 +167,10 @@ div#order-buttons {
   width: 200px;
 }
 
+div#del-addr-btn {
+  display: block;
+}
+
 div#collapse-del-addr {
   margin-bottom: 20px;
 }

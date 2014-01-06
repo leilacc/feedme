@@ -1,3 +1,30 @@
+function customParsley() {
+  $( '#order-form' ).parsley( {
+    validators: {
+      state: function() {
+        return {
+          validate: function(val) {
+            return (val.length  === 2 && /^[a-zA-Z]+$/.test(val));
+          },
+          priority: 2
+        };
+      } ,
+      zip: function() {
+        return {
+          validate: function(val) {
+            return (val.length  === 5 && /^[0-9]+$/.test(val));
+          },
+          priority: 2
+        };
+      }
+    }
+    , messages: {
+      state: "Should be a 2-letter state",
+      zip: "Should be a 5-number zip"
+    }
+  } );
+}
+
 function addDelAddrReqs() {
   $('form').parsley('addItem', '#del-addr-nick');
   $('form').parsley('addItem', '#del-addr');
@@ -13,10 +40,31 @@ function addDelAddrReqs() {
   $('#del-zip').parsley('addConstraint', { 'required': 'true' });
   $('#del-phone').parsley('addConstraint', { 'required': 'true' });
 
-//  $('#del-state').parsley('addConstraint', {'rangelength': '[2,2]'});
-//  $('#del-zip').parsley('addConstraint', {'rangelength': '[5,5]'});
-  $('#del-zip').parsley('addConstraint', {'type': 'digits'});
+  $('#del-state').parsley('addConstraint', {'state': 'true'});
+  $('#del-zip').parsley('addConstraint', {'zip': '5'});
   $('#del-phone').parsley('addConstraint', {'type': 'phone'});
+}
+
+function removeDelAddrReqs() {
+  console.log('removing');
+
+  $('form').parsley('removeItem', '#del-addr-nick');
+  $('form').parsley('removeItem', '#del-addr');
+  $('form').parsley('removeItem', '#del-city');
+  $('form').parsley('removeItem', '#del-state');
+  $('form').parsley('removeItem', '#del-zip');
+  $('form').parsley('removeItem', '#del-phone');
+
+  $('#del-addr-nick').parsley('removeConstraint', { 'required': 'true' });
+  $('#del-addr').parsley('removeConstraint', { 'required': 'true' });
+  $('#del-city').parsley('removeConstraint', { 'required': 'true' });
+  $('#del-state').parsley('removeConstraint', { 'required': 'true' });
+  $('#del-zip').parsley('removeConstraint', { 'required': 'true' });
+  $('#del-phone').parsley('removeConstraint', { 'required': 'true' });
+
+  $('#del-state').parsley('removeConstraint', {'state': 'true'});
+  $('#del-zip').parsley('removeConstraint', {'zip': '5'});
+  $('#del-phone').parsley('removeConstraint', {'type': 'phone'});
 }
 
 function addBillAddrReqs() {
@@ -69,6 +117,28 @@ function addCardReqs() {
   $('#card-expiry-yr').attr('parsley-rangelength','[4,4]')
 }
 
+function checkDelAddr() {
+  // Ensure that a delivery address has been chosen before submitting the
+  // 'Find food' form
+  // TODO: submit form to server asynchronously
+  if ($('#del-addr-selected').text().trim() == 'Delivery address') {
+    // Button text has not changed, del addr has not been selected
+    $('#del-addr-btn').css('display', 'block');
+    $('#del-addr-error').fadeIn();
+    $('#budget').parsley('validate');
+  } else {
+    // Delivery address has been selected
+    // No need to validate budget as parsley does this automatically on submit
+    $('#order-form').submit();
+  }
+  return true;
+}
+
+function removeDelAddrError() {
+  $('#del-addr-btn').css('display', 'inline-block');
+  $('#del-addr-error').fadeOut();
+}
+
 function validateAddrFields(prefix) {
   result = true;
   result = result && $('#' + prefix + 'addr-nick').parsley('validate');
@@ -100,14 +170,16 @@ function addAddr(delivery) {
   if (delivery) {
     var list = document.getElementById('del-addr-list');
     list.innerHTML = "<li><a onclick='selectAddr(\"".concat(addrNickname,
-      "\", \"", prefix, "\"); return false;'>", addrNickname, "</a>",
-      list.innerHTML);
+      "\", \"", prefix, "\"); removeDelAddrError(); return false;'>",
+      addrNickname, "</a>", list.innerHTML);
   }
-  var billList = document.getElementById('bill-addr-list');
-  billList.innerHTML = "<li><a onclick='selectAddr(\"".concat(addrNickname,
-    "\", \"", prefix, "\"); return false;'>", addrNickname, "</a>",
-    billList.innerHTML);
+//  var billList = document.getElementById('bill-addr-list');
+//  billList.innerHTML = "<li><a onclick='selectAddr(\"".concat(addrNickname,
+//    "\", \"", prefix, "\"); return false;'>", addrNickname, "</a>",
+//    billList.innerHTML);
 
+  removeDelAddrReqs();
+  removeDelAddrError();
   return false;
 };
 
