@@ -1,9 +1,5 @@
 remove parsley validation on addr collapse
 
-validate all addr fields on add new addr (cur 1 at a time) 
-
-jump to unvalidated field on addr submit
-
 fix homepage
 
 redo mobile css

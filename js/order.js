@@ -155,6 +155,7 @@ function addAddr(delivery) {
   var prefix = (delivery) ? 'del-' : 'bill-';
   if (!validateAddrFields(prefix)) {
     // At least one field was not validated
+    $('#order-form').submit(); // Validates all addr fields, jumps to 1st error
     return false;
   }
 
