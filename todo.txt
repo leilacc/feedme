@@ -15,5 +15,6 @@ serve on node
 link with qq's code
 
 --longterm--
+fix firefox css/transition issues
 add edit, remove buttons to addresses and card dropdowns
 add pre-order (future, not asap)

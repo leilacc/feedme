@@ -1,4 +1,5 @@
 body#home {
+  background-color: #ddd;
   background-image: url('food2.jpg');
   background-size: cover;
   color: #333;
@@ -50,6 +51,7 @@ div#home-content {
   body#home {
     background-color: #4ABB7D;
     background-image: none;
+    color: #444;
   }
 
   h1 {
