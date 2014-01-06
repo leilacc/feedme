@@ -12,12 +12,6 @@ body {
   }
 }
 
-body#home {
-  background-image: url('food2.jpg');
-  background-size: cover;
-  color: #333;
-}
-
 h1 {
   color: #fff;
   font-family: 'Fugaz One', cursive;
@@ -118,15 +112,6 @@ div#nav-contents #nav-links {
 
 div {
   background-color: #fff;
-}
-
-div#home {
-  padding-bottom: 22px;
-  padding-top: 12px;
-}
-
-div#home-content {
-  margin-left: 40px;
 }
 
 div#order-box {
