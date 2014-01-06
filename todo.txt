@@ -1,7 +1,5 @@
 remove parsley validation on addr collapse
 
-fix homepage
-
 redo mobile css
 
 make choose form
