@@ -56,6 +56,10 @@ div#budget-div {
   margin-bottom: 4px;
 }
 
+div#price {
+  margin-bottom: 24px;
+}
+
 div.choose-section {
 }
 
@@ -64,10 +68,6 @@ div.choose-values {
   float: right;
   font-size: 16px;
   padding-top: 10px;
-}
-
-form#choose-food-form {
-  margin-top: 24px;
 }
 
 input#budget {
@@ -83,7 +83,7 @@ input#budget {
   width: 161px;
 }
 
-input#find-food {
+input.food {
   margin-top: 16px;
 }
 
@@ -105,7 +105,7 @@ button#choose-refresh:hover {
   background-color: #E8B754;
 }
 
-a#cancel-new-del-addr {
+a.cancel {
   color: #444;
   float: right;
   font-size: 14px;

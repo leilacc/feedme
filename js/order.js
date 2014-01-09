@@ -1,5 +1,5 @@
 function customParsley() {
-  $( '#order-form' ).parsley( {
+  $( '#find-food-form' ).parsley( {
     validators: {
       state: function() {
         return {
@@ -16,11 +16,47 @@ function customParsley() {
           },
           priority: 2
         };
+      },
+      cardnumber: function() {
+        return {
+          validate: function(val) {
+            return (val.length  >= 15 && /^[0-9\s]+$/.test(val));
+          },
+          priority: 2
+        };
+      },
+      cvc: function() {
+        return {
+          validate: function(val) {
+            return (val.length  === 3 && /^[0-9]+$/.test(val));
+          },
+          priority: 2
+        };
+      },
+      month: function() {
+        return {
+          validate: function(val) {
+            return (val.length  === 2 && /^[0-9]+$/.test(val));
+          },
+          priority: 2
+        };
+      },
+      year: function() {
+        return {
+          validate: function(val) {
+            return (val.length  === 4 && /^[0-9]+$/.test(val));
+          },
+          priority: 2
+        };
       }
     }
     , messages: {
       state: "Should be a 2-letter state",
-      zip: "Should be a 5-number zip"
+      zip: "Should be a 5-number zip",
+      cardnumber: "Should be at least 15 digits",
+      cvc: "Should be 3 digits",
+      month: "Should be 2 digits",
+      year: "Should be 4 digits"
     }
   } );
 }
@@ -46,8 +82,6 @@ function addDelAddrReqs() {
 }
 
 function removeDelAddrReqs() {
-  console.log('removing');
-
   $('#find-food-form').parsley('removeItem', '#del-addr-nick');
   $('#find-food-form').parsley('removeItem', '#del-addr');
   $('#find-food-form').parsley('removeItem', '#del-city');
@@ -106,15 +140,33 @@ function addCardReqs() {
   $('#card-expiry-mo').parsley('addConstraint', { 'required': 'true' });
   $('#card-expiry-yr').parsley('addConstraint', { 'required': 'true' });
 
-  // TODO: change this to parsley
-  $('#card-number').attr('parsley-type','digits')
-  $('#card-number').attr('parsley-minlength','15')
-  $('#card-cvc').attr('parsley-type','digits')
-  $('#card-cvc').attr('parsley-rangelength','[3,3]')
-  $('#card-expiry-mo').attr('parsley-type','digits')
-  $('#card-expiry-mo').attr('parsley-rangelength','[2,2]')
-  $('#card-expiry-yr').attr('parsley-type','digits')
-  $('#card-expiry-yr').attr('parsley-rangelength','[4,4]')
+  $('#card-number').parsley('addConstraint', {'cardnumber': ''});
+  $('#card-cvc').parsley('addConstraint', {'cvc': ''});
+  $('#card-expiry-mo').parsley('addConstraint', {'month': ''});
+  $('#card-expiry-yr').parsley('addConstraint', {'year': ''});
+}
+
+function removeDelAddrReqs() {
+  $('#order-form').parsley('removeItem', '#card-nick');
+  $('#order-form').parsley('removeItem', '#card-name');
+  $('#order-form').parsley('removeItem', '#card-type');
+  $('#order-form').parsley('removeItem', '#card-number');
+  $('#order-form').parsley('removeItem', '#card-cvc');
+  $('#order-form').parsley('removeItem', '#card-expiry-mo');
+  $('#order-form').parsley('removeItem', '#card-expiry-yr');
+
+  $('#card-nick').parsley('removeConstraint', { 'required': 'true' });
+  $('#card-name').parsley('removeConstraint', { 'required': 'true' });
+  $('#card-type').parsley('removeConstraint', { 'required': 'true' });
+  $('#card-number').parsley('removeConstraint', { 'required': 'true' });
+  $('#card-cvc').parsley('removeConstraint', { 'required': 'true' });
+  $('#card-expiry-mo').parsley('removeConstraint', { 'required': 'true' });
+  $('#card-expiry-yr').parsley('removeConstraint', { 'required': 'true' });
+
+  $('#card-number').parsley('removeConstraint', {'cardnumber': ''});
+  $('#card-cvc').parsley('removeConstraint', {'cvc': ''});
+  $('#card-expiry-mo').parsley('removeConstraint', {'month': ''});
+  $('#card-expiry-yr').parsley('removeConstraint', {'year': ''});
 }
 
 function checkDelAddr() {
@@ -131,7 +183,7 @@ function checkDelAddr() {
     if ($('#budget').parsley('validate')) {
       // Budget is also valid, can submit form
       // TODO: make this submit asynchronous
-      // $('#order-form').submit();
+      // $('#find-food-form').submit();
       transition('find', 'choose');
     }
   }
@@ -167,14 +219,13 @@ function validateAddrFields(prefix) {
   result = result && $('#' + prefix + 'zip').parsley('validate');
   result = result && $('#' + prefix + 'phone').parsley('validate');
   console.log(result);
-  return result;
 }
 
 function addAddr(delivery) {
   var prefix = (delivery) ? 'del-' : 'bill-';
   if (!validateAddrFields(prefix)) {
     // At least one field was not validated
-    $('#order-form').submit(); // Validates all addr fields, jumps to 1st error
+    $('#find-food-form').submit(); // Validates all fields, jumps to 1st error
     return false;
   }
 
@@ -193,10 +244,12 @@ function addAddr(delivery) {
       "\", \"", prefix, "\"); removeDelAddrError(); return false;'>",
       addrNickname, "</a>", list.innerHTML);
   }
-//  var billList = document.getElementById('bill-addr-list');
-//  billList.innerHTML = "<li><a onclick='selectAddr(\"".concat(addrNickname,
-//    "\", \"", prefix, "\"); return false;'>", addrNickname, "</a>",
-//    billList.innerHTML);
+
+  // Add new address to billing address list
+  var billList = document.getElementById('bill-addr-list');
+  billList.innerHTML = "<li><a onclick='selectAddr(\"".concat(addrNickname,
+    "\", \"", prefix, "\"); return false;'>", addrNickname, "</a>",
+    billList.innerHTML);
 
   removeDelAddrReqs();
   removeDelAddrError();
@@ -209,17 +262,37 @@ function selectAddr(addrNickname, prefix) {
   return false;
 }
 
+function validateCardFields() {
+  result = true;
+  result = result && $('#card-nick').parsley('validate');
+  result = result && $('#card-name').parsley('validate');
+  result = result && $('#card-number').parsley('validate');
+  result = result && $('#card-cvc').parsley('validate');
+  result = result && $('#card-expiry-mo').parsley('validate');
+  result = result && $('#card-expiry-yr').parsley('validate');
+  result = result && $('#card-type').parsley('validate');
+  return result;
+}
+
 function addCard() {
+  if (!validateCardFields()) {
+    // At least one field was not validated
+    $('#order-form').submit(); // Validates all fields, jumps to 1st error
+    return false;
+  }
+
+  // Collapse completed form, uncollapse order button
+  $('#collapseCard').collapse('hide');
+  $('#collapseOrderButton').collapse('show');
+
+  // Change button to show that the new address is selected
   var cardNickname = document.getElementById('card-nick').value;
   selectCard(cardNickname);
 
+  // Add this card to the card drop downs
   var list = document.getElementById('card-list');
   list.innerHTML = "<li><a onclick='selectCard(\"".concat(cardNickname,
     "\"); return false;'>", cardNickname, "</a>", list.innerHTML);
-
-  // Collapse completed form
-  $('#new-card').attr('href', '#collapseCard');
-  $('#new-card').click();
 
   return false;
 };
@@ -228,4 +301,19 @@ function selectCard(cardNickname) {
   var button = document.getElementById('card');
   button.innerHTML = cardNickname;
   return false;
+}
+
+function checkOrder() {
+  // Ensure that a credit card has been chosen before submitting the
+  // order form
+  // TODO: submit form to server asynchronously
+  if ($('#card').text().trim() == 'Credit card') {
+    // Button text has not changed, card has not been selected
+    $('#add-card-btn').css('display', 'block');
+    $('#card-error').fadeIn();
+  } else {
+    //  Card has been selected
+    // TODO: Confirmation
+  }
+  return true;
 }

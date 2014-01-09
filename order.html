@@ -42,10 +42,7 @@
     </div>
 
     <div id='order'>
-<!--
       <div id='find-food-buttons' class='food-buttons'>
--->
-      <div id='find-food-buttons' class='food-buttons' style='display: none;'>
         <form parsley-validate id='find-food-form' class='form-inline'>
           <label>Deliver to</label>
           <div class="panel-group" id="accordion">
@@ -60,6 +57,7 @@
                 <div class="caret pull-right"></div>
               </button>
               <ul id='del-addr-list' class="dropdown-menu">
+                <li><a onclick="selectAddr('home', 'del-'); removeDelAddrError(); return false;">home <!--TODO: remove this for prod-->
                 <li><a data-toggle="collapse" data-parent="#accordion"
                        href="#collapse-del-addr"
                        onclick="addDelAddrReqs();
@@ -112,7 +110,8 @@
                       onclick='addAddr(true); return false;'>
                 Add address
               </button>
-              <a id='cancel-new-del-addr' href="#collapse-del-addr"
+              <a id='cancel-new-del-addr' class='cancel'
+                 href="#collapse-del-addr"
                  data-toggle="collapse" data-parent="#accordion"
                  onclick="$('#collapseBudget').collapse('show');
                           removeDelAddrReqs();">
@@ -147,16 +146,14 @@
   -->
 
               <input type='submit' id='find-food' value='Find food near me!'
+                     class='food'
                      onclick='checkDelAddr(); return false;'>
             </form>
           </div>
         </div>
       </div>
 
-<!--
       <div id='choose-food-buttons' class='food-buttons' style='display: none;'>
--->
-      <div id='choose-food-buttons' class='food-buttons'>
         <div class='choose-section'>
           <label>Restaurant</label>
             <div id='restaurant-name' class='choose-values'>
@@ -174,7 +171,7 @@
             </div>
         </div>
 
-        <div class='choose-section'>
+        <div class='choose-section' id='price'>
           <label>Price</label>
             <div id='choose-price' class='choose-values'>
               $10.44
@@ -199,12 +196,156 @@
       <div class="panel-group" id="accordion">
         <div id="collapseOrder" class="panel-collapse collapse">
           <div id='order-food-buttons' class='food-buttons'>
-            Order
-            <form id='order-food-form' class='form-inline'>
-            </form><!--order food form-->
-          </div><!--order-food-buttons-->
-        </div> <!--collapse-order-->
-      </div> <!--panel-group-->
+            <form parsley-validate id='order-form' class='form-inline'>
+              <label>Charge</label>
+              <div id='add-card-btn' class="btn-group"
+                   onclick="$('#add-card-btn').css('display', 'inline-block');">
+                <button type="button"
+                        class="btn btn-default dropdown-toggle order" 
+                        data-toggle="dropdown" id='select-card'>
+                  <span id='card' class='button-contents'>
+                    Credit card
+                  </span>
+                  <div class="caret pull-right"></div>
+                </button>
+                <ul id='card-list' class="dropdown-menu">
+                  <li><a data-toggle="collapse" data-parent="#accordion"
+                         href="#collapseCard"
+                         onclick="addCardReqs();
+                                  $('#collapseOrderButton').collapse('hide');
+                                  $('#card-error').hide();
+                                  return false;">
+                    <i class="fa fa-plus fa-padding-right"></i>
+                    Add a new credit card</a>
+                </ul>
+              </div>
+
+              <ul id="card-error" class="parsley-error-list"
+                  style='display: none;'>
+                <li class="required" style="display: list-item;">
+                  Choose a credit card
+                </li>
+              </ul>
+
+             <div id="collapseCard" class="panel-collapse collapse">
+              <div class='form-group'>
+                <label for="card-nick">Card nickname</label>
+                <input type='text' id='card-nick'
+                       placeholder="visa/mastercard/anne's">
+              </div>
+
+              <div class='form-group'>
+                <label for="card-name">Name on card</label>
+                <input type='text' id='card-name' placeholder="John Doe">
+              </div>
+
+              <div class='form-group'>
+                <label for="card-number">Card number</label>
+                <input type='text' id='card-number'
+                       placeholder="4242 4242 4242 4242">
+              </div>
+
+              <div class='form-group'>
+                <label for="cvc">CVC security code</label>
+                <input type='text' id='card-cvc' placeholder="123">
+              </div>
+
+              <div class='form-group'>
+                <label for="expiry">Expiry month/year</label>
+                <input type='text' id='card-expiry-mo' placeholder="01">
+                <input type='text' id='card-expiry-yr' placeholder="2016">
+              </div>
+
+              <div class='form-group'>
+                <label for="card-type">Card type</label>
+                <input type='text' id='card-type'
+                       placeholder="ie Visa, MasterCard">
+              </div>
+
+              <div class='form-group panel-group'>
+                <label for="bill-addr">Billing address</label>
+                <div class="btn-group">
+                  <button type="button"
+                          class="btn btn-default dropdown-toggle order" 
+                          data-toggle="dropdown" id='select-bill-addr'>
+                    <span id='bill-addr-selected' class='button-contents'>
+                      Billing address
+                    </span>
+                    <div class="caret pull-right"></div>
+                  </button>
+                  <ul id='bill-addr-list' class="dropdown-menu">
+                    <li><a data-toggle="collapse" data-parent="#accordion"
+                           href="#collapse-bill-addr"
+                           onclick='addBillAddrReqs(); return false;'>
+                      <i class="fa fa-plus fa-padding-right"></i>Add a new address</a>
+                  </ul>
+                </div>
+
+                <div id="collapse-bill-addr" class="panel-collapse collapse">
+                  <div class='form-group'>
+                    <label for="nick">Address nickname</label>
+                    <input type='text' id='bill-addr-nick'
+                           placeholder="home/work/anne's">
+                  </div>
+
+                  <div class='form-group'>
+                    <label for="addr">Address</label>
+                    <input type='text' id='addr' placeholder="1 Main St">
+                  </div>
+
+                  <div class='form-group'>
+                    <label for="city">City</label>
+                    <input type='text' id='city' placeholder="Boston">
+                  </div>
+
+                  <div class='form-group'>
+                    <label for="state">State</label>
+                    <input type='text' id='state' placeholder="MA">
+                  </div>
+
+                  <div class='form-group'>
+                    <label for="zip">Zip</label>
+                    <input type='text' id='zip' placeholder="12345">
+                  </div>
+
+                  <div class='form-group'>
+                    <label for="phone">Phone</label>
+                    <input type='text' id='phone' placeholder="1234567890">
+                  </div>
+                  <button type='submit' id='new-bill-addr' class='add-info'
+                          data-toggle="collapse" data-parent="#accordion"
+                          href="#collapse-bill-addr"
+                          onclick='addAddr(false); return false;'>
+                    Add address
+                  </button>
+                </div><!--collapse-addr-->
+              </div><!--panel-group-->
+
+              <button type='submit' id='new-card' class='add-info'
+                      data-toggle="collapse" data-parent="#accordion"
+                      onclick='addCard(); return false;'>
+                Add card
+              </button>
+              <a id='cancel-new-card' class='cancel'
+                 href="#collapseCard" data-parent="#accordion"
+                 onclick="$('#collapseCard').collapse('hide');
+                          $('#collapseOrderButton').collapse('show');
+                          removeCardReqs();">
+                Cancel
+              </a>
+            </div><!--collapse-addr-->
+
+            <div class='panel-group'>
+              <div id="collapseOrderButton" class="panel-collapse collapse in">
+                <input type='submit' id='order' value='Order!' class='food'
+                       onclick='checkOrder(); return false;'>
+              </div><!--collapse-order-btn-->
+            </div><!--panel-group-->
+
+          </form><!--order food form-->
+        </div><!--order-food-buttons-->
+      </div> <!--collapse-order-->
+    </div> <!--panel-group-->
 
 
     </div><!--order-->
