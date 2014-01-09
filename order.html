@@ -181,16 +181,32 @@
             </div>
         </div>
 
-        <form id='choose-food-form' class='form-inline'>
-          <button type="button" id='choose-refresh'
-                  title='find different food'>
-            <i class="fa fa-refresh"></i>
-          </button>
-          <input type='submit' id='choose-food' value='I want this'
-                 onclick='return false;'>
-        </form><!--choose food form-->
+      <div class="panel-group" id="accordion">
+        <div id="collapseChoose" class="panel-collapse collapse in">
+          <form id='choose-food-form' class='form-inline'>
+            <button type="button" id='choose-refresh'
+                    title='find different food'>
+              <i class="fa fa-refresh"></i>
+            </button>
+            <input type='submit' id='choose-food' value='I want this'
+                   onclick='showOrder(); return false;'>
+          </form><!--choose food form-->
+        </div> <!--collapse-order-->
+      </div> <!--panel-group-->
+
       </div>
     
+      <div class="panel-group" id="accordion">
+        <div id="collapseOrder" class="panel-collapse collapse">
+          <div id='order-food-buttons' class='food-buttons'>
+            Order
+            <form id='order-food-form' class='form-inline'>
+            </form><!--order food form-->
+          </div><!--order-food-buttons-->
+        </div> <!--collapse-order-->
+      </div> <!--panel-group-->
+
+
     </div><!--order-->
 
     <script src="https://code.jquery.com/jquery.js"></script>

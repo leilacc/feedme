@@ -147,6 +147,12 @@ function transition(prevPrefix, nextPrefix) {
   $('#' + nextPrefix + '-food-buttons').fadeIn();
 }
 
+function showOrder() {
+  // Shows the actual order part of the page after customer has chosen food
+  $('#collapseChoose').collapse('hide');
+  $('#collapseOrder').collapse('show');
+}
+
 function removeDelAddrError() {
   $('#del-addr-btn').css('display', 'inline-block');
   $('#del-addr-error').fadeOut();
