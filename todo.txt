@@ -1,8 +1,9 @@
-remove parsley validation on addr collapse
+fix price formatting on choose form
 
-make choose form
-
-make order form
+finish order form
+  -billing addr
+  -make expiry month/yr pretty
+  -confirmation page
 
 make food profile page
 
@@ -11,6 +12,8 @@ serve dynamically
 serve on node
 
 link with qq's code
+
+redo front page
 
 --longterm--
 fix firefox css/transition issues
