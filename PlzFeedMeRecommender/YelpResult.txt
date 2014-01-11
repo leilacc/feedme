@@ -1,0 +1,153 @@
+Zoe's	3.5
+Mela	4.0
+Sunset Cafe	3.0
+Les Amis	5.0
+Sabra Grill	3.5
+Taipei Tokyo	3.5
+Taipei Tokyo	3.5
+Hana Sushi	4.0
+Gen Sushi	4.5
+I Heart Sushi	3.5
+Picante Mexican Grill	3.5
+Union Square Pizza	2.5
+Joti Palace	2.5
+Desi Dhaba	3.0
+Blackjack Pasta Bar	3.0
+Passage To India	3.0
+Asia Wok	3.5
+Asia Wok	3.0
+Rani Indian Bistro	3.0
+Wok N Roll Restaurant	3.5
+Subway	3.5
+Subway	3.0
+Subway	3.5
+Subway	2.5
+Subway	2.0
+Subway	3.0
+Subway	2.5
+Subway	2.5
+Subway	3.0
+Subway	2.5
+Subway	1.5
+Subway	1.5
+Subway	3.0
+Shiraz Cuisine	4.0
+Olecito	4.0
+Olecito	3.5
+Olecito	2.5
+The Middle East Restaurant	3.0
+Tanjore	3.5
+Cafe Kiraz	4.0
+Aman Place	3.5
+Wrapro Falafel & Grill	3.0
+Subway	3.5
+Subway	3.0
+Subway	3.5
+Subway	2.5
+Subway	2.0
+Subway	3.0
+Subway	2.5
+Subway	2.5
+Subway	3.0
+Subway	2.5
+Subway	1.5
+Subway	1.5
+Subway	3.0
+Grasshopper Cafe	4.0
+Lorenz Island Kuisine	3.5
+Yak & Yeti	3.5
+Chutney's	3.5
+Chutney's	3.5
+The Village Kitchen	4.5
+Bon Chon	4.0
+Bon Chon	4.0
+Thelonious Monkfish	3.5
+Cantina La Mexicana	4.0
+Olecito	4.0
+Regina Pizzeria	4.0
+Regina Pizzeria	4.0
+Regina Pizzeria	4.0
+Regina Pizzeria	3.5
+Regina Pizzeria	2.5
+Regina Pizzeria	2.5
+Regina Pizzeria	2.5
+Crazy Dough's Pizza	3.5
+Asmara Restaurant	4.0
+Dosa Factory	3.0
+Punjab Palace	4.0
+Sunset Grill and Tap	4.0
+Cafeteria Boston	3.0
+Greek Corner Restaurant	4.0
+A@Time	4.0
+Mixtura	4.5
+Camino Real	3.5
+Istanbul'lu	4.0
+Fuji At Kendall	3.5
+Spice Thai Cuisine	3.0
+Bombay Cafe	3.5
+Punjab Palace	4.0
+Cafe 472	3.0
+Laz Cafe	2.0
+Cafe Podima	3.0
+Boston Kabob Company	4.0
+India Quality Restaurant	4.0
+Angora Cafe	3.5
+Mama's Place	4.0
+Pizza Days	2.5
+Pizza Days	2.0
+Mass Chicken	2.5
+Beantown Taqueria	4.0
+Beantown Taqueria	3.5
+Beijing Tokyo	3.0
+Beijing & Toyko	3.0
+Mama Gina's Pizza	3.5
+Friend's Pizzeria	3.5
+Shalimar of India	3.0
+Harvest of India	4.0
+Cambridge Pizzeria	4.5
+Sugar & Spice	3.5
+Golden Temple	3.5
+Oriental Pearl	3.5
+ABC Pizza House	3.0
+Noodle Stix	2.5
+India Castle	3.5
+China Delight	2.5
+Sushi Express	3.5
+Samurai Express	3.5
+Noodle Street	3.0
+Falafel Corner	3.0
+Olive Cafe	3.5
+The Proper Slice	4.5
+Mona Lisa Pizza &  Grill	3.5
+Caprese Pizzeria N Grill	3.0
+Cambridge Coffee & Pizza Shop	2.5
+The Maharaja	4.0
+Curry Thai	3.5
+Dim Sum Chef	4.0
+Midwest Grill	3.0
+Ultimate Pizza & Wings	4.0
+Theo's Pizzeria	3.5
+Ecco Pizzeria	4.5
+Felcaro Pizzeria	3.5
+IL Mondo Pizzeria	3.5
+The Kebab Factory	4.0
+Dosa n Curry	4.0
+Dosa Factory	3.0
+Osushi	3.0
+Zinneken's	3.0
+Masala	4.0
+Masala Art	3.5
+Blue Fin	3.0
+Thaitation	4.0
+Yoma	4.0
+U-Sushi	4.0
+Mr. Sushi	3.5
+Cafe Sushi	4.0
+Takusan Sushi	3.5
+FuGaKyu	4.0
+Skampa	4.0
+Singh's Roti Shop	4.0
+Shan-A-Punjab	4.5
+Zing Wingz	3.0
+Mashawi Grill	4.5
+Patty Chen's Dumpling Room	3.0
