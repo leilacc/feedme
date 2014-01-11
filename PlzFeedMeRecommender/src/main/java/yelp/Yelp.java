@@ -168,7 +168,7 @@ public class Yelp {
 			
 			Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
 			Statement stmt = conn.createStatement();
-			//stmt.executeUpdate("TRUNCATE TABLE foods");
+			stmt.executeUpdate("TRUNCATE foods");
 			
 			while (parser.hasNext()) {
 				 Event e = parser.next();
@@ -212,6 +212,8 @@ public class Yelp {
 											 ArrayList <String> keys = new ArrayList<String>();
 											 for (String k : cruis.keySet()) {
 												 String insertKey = k.replaceAll(" ", "_");
+												 if (k.equals("Gluten - Free"))
+													 insertKey = "Gluten_Free";
 												 columns = columns + insertKey + ",";
 												 keys.add(k);
 											 }
@@ -224,6 +226,7 @@ public class Yelp {
 											 values = values.substring(0, values.length()-1) + ")";
 											 String sql = "INSERT INTO foods " + columns +
 												        " VALUES " + values;
+											 System.out.println(sql);
 											 stmt.executeUpdate(sql);
 										 }
 										 foodparser.next();
