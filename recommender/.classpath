@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry including="**/*.java" kind="src" output="target/test-classes" path="src/test/java"/>
+	<classpathentry including="**/*.java" kind="src" path="src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="var" path="M2_REPO/junit/junit/3.8.1/junit-3.8.1.jar"/>
+	<classpathentry kind="src" path="/mahout-core"/>
+	<classpathentry kind="src" path="/mahout-math"/>
+	<classpathentry kind="lib" path="/Users/qliu/.m2/repository/org/apache/mahout/mahout-core/0.5/mahout-core-0.5.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.apache.mahout"/>
+			<attribute name="maven.artifactId" value="mahout-core"/>
+			<attribute name="maven.version" value="0.5"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="target/dependency/scribe-1.3.5.jar"/>
+	<classpathentry kind="lib" path="/Users/qliu/.m2/repository/org/codehaus/jettison/jettison/1.1/jettison-1.1.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.codehaus.jettison"/>
+			<attribute name="maven.artifactId" value="jettison"/>
+			<attribute name="maven.version" value="1.1"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/qliu/.m2/repository/org/apache/cassandra/deps/avro/1.4.0-cassandra-1/avro-1.4.0-cassandra-1.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.apache.cassandra.deps"/>
+			<attribute name="maven.artifactId" value="avro"/>
+			<attribute name="maven.version" value="1.4.0-cassandra-1"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/qliu/.m2/repository/commons-cli/commons-cli/1.1/commons-cli-1.1.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="commons-cli"/>
+			<attribute name="maven.artifactId" value="commons-cli"/>
+			<attribute name="maven.version" value="1.1"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="target/dependency/commons-codec-1.4.jar"/>
+	<classpathentry kind="lib" path="target/dependency/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="target/dependency/httpclient-4.1.1.jar"/>
+	<classpathentry kind="lib" path="target/dependency/httpcore-4.1.jar"/>
+	<classpathentry kind="lib" path="target/dependency/junit-3.8.1.jar"/>
+	<classpathentry kind="lib" path="target/recommender-1.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="target/dependency/javax.json-1.0.2.jar"/>
+	<classpathentry kind="lib" path="target/dependency/commons-lang3-3.0.jar"/>
+	<classpathentry kind="lib" path="/Users/qliu/.m2/repository/commons-lang/commons-lang/2.4/commons-lang-2.4.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="commons-lang"/>
+			<attribute name="maven.artifactId" value="commons-lang"/>
+			<attribute name="maven.version" value="2.4"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="target/dependency/jtds-1.3.1.jar"/>
+	<classpathentry kind="lib" path="/Users/qliu/.m2/repository/com/oracle/ojdbc6/11.2.0/ojdbc6-11.2.0.jar"/>
+	<classpathentry kind="lib" path="/Users/qliu/Downloads/mysql-connector-java-3.1.14/mysql-connector-java-3.1.14-bin.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
