@@ -11,9 +11,10 @@ serve dynamically
 
 serve on node
 
-link with qq's code
-
 redo front page
+
+fix slowness perhaps by just querying database
+add in recommendations based on ratings
 
 --longterm--
 fix firefox css/transition issues
