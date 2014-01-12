@@ -13,6 +13,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -272,7 +273,7 @@ public class Yelp {
 		}
 	 }
 	 
-	 public ResultSet makeRecommendations(HashMap<String, Object[]> args) {
+	 public void makeRecommendations(HashMap<String, Object[]> args) {
 				try {
 					Class.forName(JDBC_DRIVER);
 					
@@ -293,9 +294,19 @@ public class Yelp {
 							
 						}
 					}*/
-					//sql = sql + "ORDER BY rating DESC limit 10";
-					System.out.println(stmt.executeQuery(sql).getFetchSize());
-					return stmt.executeQuery(sql);
+					sql = sql + " ORDER BY RAND() LIMIT 10";
+					System.out.println(sql);
+					ResultSet rs = stmt.executeQuery(sql);
+					ResultSetMetaData rsmd = rs.getMetaData();
+					int columnsNumber = rsmd.getColumnCount();
+					while (rs.next()) {
+				        for (int i = 1; i <= columnsNumber; i++) {
+				            if (i > 1) System.out.print(",  ");
+				            String columnValue = rs.getString(i);
+				            System.out.print(columnValue + " " + rsmd.getColumnName(i));
+				        }
+				        System.out.println("");
+				    }
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -303,7 +314,6 @@ public class Yelp {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				return null;
 	 }
 	 
 	 public static void main(String[] args) {
