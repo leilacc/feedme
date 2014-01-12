@@ -12,9 +12,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 import javax.json.Json;
@@ -40,6 +42,7 @@ public class Yelp {
 	 public static BufferedWriter writer;
 	 static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
 	 static final String DB_URL = "jdbc:mysql://sql.mit.edu/quanquan+plzfeedme";
+	private static final Object[] Array = null;
 
 	 //Credentials
 	 private final String USER = "quanquan";
@@ -269,8 +272,37 @@ public class Yelp {
 		}
 	 }
 	 
-	 public ArrayList<String> makeRecommendations(ArrayList<String> args) {
-		 return null;
+	 public ResultSet makeRecommendations(HashMap<String, Object[]> args) {
+				try {
+					Class.forName(JDBC_DRIVER);
+					
+					Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+					Statement stmt = conn.createStatement();
+					
+					String sql = "SELECT * FROM foods WHERE ";
+					
+					if (args.get("priceRange") != null) {
+						Float[] priceRange = (Float[]) args.get("priceRange");
+						sql = sql + "food_price >= " + priceRange[0].intValue() + " AND " + "food_price<= " + priceRange[1].intValue(); 
+					} else if (args.get("noFoodFrom") != null) {
+						for (String country: (String[]) args.get("noFoodFrom")) {
+							sql = sql + " AND " + country + "= 0";
+						}
+					} /*else if (args.get("noFoodType") != null) {
+						for (String food: (String[]) args.get("noFoodType")) {
+							
+						}
+					}*/
+					sql = sql + "ORDER BY rating DESC limit 10";
+					return stmt.executeQuery(sql);
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				return null;
 	 }
 	 
 	 public static void main(String[] args) {
@@ -287,7 +319,11 @@ public class Yelp {
 	
 		OrderIn orderin = new OrderIn(publicKey, privateKey);
 		orderin.parseJson("ASAP", "02139", "Cambridge", "320 Memorial Drive");
-		yelp.insertFood(yelp, "1-12+4:30", "02139", "Cambridge", "320 Memorial Drive");
+		//yelp.insertFood(yelp, "1-12+4:30", "02139", "Cambridge", "320 Memorial Drive");
+		HashMap<String, Object[]> arguments = new HashMap<String, Object[]>();
+		Float[] priceRange = {new Float(10), new Float(20)};
+		arguments.put("priceRange", priceRange);
+		yelp.makeRecommendations(arguments);
 		
 		   
 		yelp.getYelpRatings(yelp, "OrderInRestaurants.txt");
