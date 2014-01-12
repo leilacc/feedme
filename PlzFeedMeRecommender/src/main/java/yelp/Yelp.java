@@ -293,7 +293,8 @@ public class Yelp {
 							
 						}
 					}*/
-					sql = sql + "ORDER BY rating DESC limit 10";
+					//sql = sql + "ORDER BY rating DESC limit 10";
+					System.out.println(stmt.executeQuery(sql).getFetchSize());
 					return stmt.executeQuery(sql);
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
