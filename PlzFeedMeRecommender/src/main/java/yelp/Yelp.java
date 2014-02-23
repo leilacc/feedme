@@ -317,6 +317,40 @@ public class Yelp {
 				}
 	 }
 	 
+	 public void getOpenTakeouts(Yelp yelp, String datetime, String zip, String city, String addr) {
+		 String listURL = orderInURL+"/dl/" + datetime + "/" + zip + "/" + city + "/" + addr + "?_auth=1," + privateKey;
+		 try {
+			Class.forName(JDBC_DRIVER);
+			InputStream is = new URL(listURL).openStream();
+			JsonParser parser = Json.createParser(is);
+			writer = new BufferedWriter(new FileWriter("OrderInRestaurants.txt"));
+			
+			String name = "";
+			
+			while (parser.hasNext()) {
+				 Event e = parser.next();
+				 if (e == Event.KEY_NAME) {
+					 //writer.write(parser.getString());
+					 if (parser.getString().equals("na") && parser.hasNext()) {
+						 if (name.equals("")) {
+							 parser.next();
+							 name = parser.getString();
+						 } else {
+							 writer.write(name + "\n");
+							 name = "";
+						 }
+					 }
+				 }
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	 }
+	 
 	 public static void main(String[] args) {
 		// Update tokens here from Yelp developers site, Manage API access.
 		String consumerKey = "oI3F8RQDv-DfFQ5ZcEGu6w";
@@ -331,7 +365,7 @@ public class Yelp {
 	
 		OrderIn orderin = new OrderIn(publicKey, privateKey);
 		orderin.parseJson("ASAP", "02139", "Cambridge", "320 Memorial Drive");
-		yelp.insertFood(yelp, "1-12+4:30", "02139", "Cambridge", "320 Memorial Drive");
+		//yelp.insertFood(yelp, "1-12+4:30", "02139", "Cambridge", "320 Memorial Drive");
 		//String rating = yelp.findYelpRating(yelp, "Blackjack Pasta", "52 Queensberry St, Boston, MA");
 		//System.out.println(rating);
 		HashMap<String, Object[]> arguments = new HashMap<String, Object[]>();
