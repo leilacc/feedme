@@ -43,7 +43,7 @@ public class Yelp {
 	 public static BufferedWriter writer;
 	 static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
 	 static final String DB_URL = "jdbc:mysql://sql.mit.edu/quanquan+plzfeedme";
-	private static final Object[] Array = null;
+	 private static final Object[] Array = null;
 
 	 //Credentials
 	 private final String USER = "quanquan";
@@ -95,7 +95,8 @@ public class Yelp {
 			String str;
 			writer = new BufferedWriter(new FileWriter("YelpResult.txt"));
 			while ((str = in.readLine()) != null) {
-				String response = yelp.search(str, "320 Memorial Drive, Cambridge, MA", -1000, -1000);
+				String location = "320 Memorial Drive, Cambridge, MA";
+				String response = yelp.search(str, location, -1000, -1000);
 				String name = "";
 				String rating = "";
 				InputStream is = new ByteArrayInputStream(response.getBytes());
@@ -142,7 +143,7 @@ public class Yelp {
 	 }
 	 
 	 public String findYelpRating(Yelp yelp, String name, String addr) {
-		 String response = yelp.search(name + " " + addr, "320 Memorial Drive, Cambridge, MA", -1000, -1000);
+		 String response = yelp.search(name, addr, -1000, -1000);
 		 InputStream is = new ByteArrayInputStream(response.getBytes());
 		 JsonParser parser = Json.createParser(is);
 		 while (parser.hasNext()) {
@@ -189,7 +190,7 @@ public class Yelp {
 							 id = "";
 					 } else if (parser.getString().equals("id") && parser.hasNext()) {
 						 if (!name.equals("") && !id.equals("") && !id.equals("186")) {
-							 String rating = findYelpRating(yelp, name, address);
+							 String rating = findYelpRating(yelp, name, "Boston, MA");
 							 String menuURL = orderInURL+"/rd/" + id + "?_auth=1," + privateKey; 
 							 InputStream foodis = new URL(menuURL).openStream();
 							 JsonParser foodparser = Json.createParser(foodis);
@@ -259,7 +260,7 @@ public class Yelp {
 				 }
 			 }
 			 if (!name.equals("") && !id.equals("")) {
-				 writer.write(name + "\n");
+				 writer.write(name + "\t" + address + "\n");
 				 name = "";
 			 }
 		} catch (SQLException e) {
@@ -330,7 +331,9 @@ public class Yelp {
 	
 		OrderIn orderin = new OrderIn(publicKey, privateKey);
 		orderin.parseJson("ASAP", "02139", "Cambridge", "320 Memorial Drive");
-		//yelp.insertFood(yelp, "1-12+4:30", "02139", "Cambridge", "320 Memorial Drive");
+		yelp.insertFood(yelp, "1-12+4:30", "02139", "Cambridge", "320 Memorial Drive");
+		//String rating = yelp.findYelpRating(yelp, "Blackjack Pasta", "52 Queensberry St, Boston, MA");
+		//System.out.println(rating);
 		HashMap<String, Object[]> arguments = new HashMap<String, Object[]>();
 		Float[] priceRange = {new Float(10), new Float(20)};
 		arguments.put("priceRange", priceRange);
