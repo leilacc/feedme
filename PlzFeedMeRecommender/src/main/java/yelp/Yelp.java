@@ -231,7 +231,7 @@ public class Yelp {
 											 values = values.substring(0, values.length()-1) + ")";
 											 String sql = "INSERT INTO foods " + columns +
 												        " VALUES " + values;
-											 System.out.println(sql);
+											 //System.out.println(sql);
 											 stmt.executeUpdate(sql);
 										 }
 										 foodparser.next();
@@ -274,47 +274,75 @@ public class Yelp {
 		}
 	 }
 	 
-	 public void makeRecommendations(HashMap<String, Object[]> args) {
+	 public void makeRecommendations(Float[] priceRange, String rating, String[] ethnic, String[] exclude) {
+			try {
+				Class.forName(JDBC_DRIVER);
+				
+				Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+				Statement stmt = conn.createStatement();
+				
+				String sql = "SELECT * FROM foods WHERE ";
+				
 				try {
-					Class.forName(JDBC_DRIVER);
-					
-					Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-					Statement stmt = conn.createStatement();
-					
-					String sql = "SELECT * FROM foods WHERE ";
-					
-					if (args.get("priceRange") != null) {
-						Float[] priceRange = (Float[]) args.get("priceRange");
-						sql = sql + "food_price >= " + priceRange[0].intValue() + " AND " + "food_price<= " + priceRange[1].intValue(); 
-					} else if (args.get("noFoodFrom") != null) {
-						for (String country: (String[]) args.get("noFoodFrom")) {
-							sql = sql + " AND " + country + "= 0";
-						}
-					} /*else if (args.get("noFoodType") != null) {
-						for (String food: (String[]) args.get("noFoodType")) {
-							
-						}
-					}*/
-					sql = sql + " ORDER BY RAND() LIMIT 10";
-					System.out.println(sql);
-					ResultSet rs = stmt.executeQuery(sql);
-					ResultSetMetaData rsmd = rs.getMetaData();
-					int columnsNumber = rsmd.getColumnCount();
-					while (rs.next()) {
-				        for (int i = 1; i <= columnsNumber; i++) {
-				            if (i > 1) System.out.print(",  ");
-				            String columnValue = rs.getString(i);
-				            System.out.print(columnValue + " " + rsmd.getColumnName(i));
-				        }
-				        System.out.println("");
-				    }
-				} catch (ClassNotFoundException e) {
+					BufferedReader in = new BufferedReader(new FileReader("OrderInRestaurants.txt"));
+					String str;
+					while ((str = in.readLine()) != null) {
+							if (sql == "SELECT * FROM foods WHERE ") {
+								str = str.replace("'","");
+								sql += "(rest_name = '" + str + "' ";
+							} else {
+								sql += "OR rest_name = '" + str + "' ";
+							}
+					}
+					sql += ") ";
+				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				} catch (SQLException e) {
+				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+				}			
+				
+				if (priceRange != null) {
+					sql = sql + "AND food_price >= " + priceRange[0].intValue() + " AND " + "food_price<= " + priceRange[1].intValue(); 
+				} 
+				
+				if (ethnic != null) {
+					for (String country: ethnic) {
+						sql = sql + " AND " + country + "= 0 ";
+					}
 				}
+				
+				if (exclude != null) {
+					for (String food: exclude) {
+						sql = sql + "AND food_name NOT LIKE '%" + food + "%' AND food_descrip NOT LIKE " + "'%" + food + "%' ";
+					}
+				} 
+				
+				if (rating != null) {
+					sql = sql + "AND rating >= '" + rating + "' ";
+				}
+				
+				sql = sql + " ORDER BY RAND() LIMIT 10;";
+				//System.out.println(sql);
+				ResultSet rs = stmt.executeQuery(sql);
+				ResultSetMetaData rsmd = rs.getMetaData();
+				int columnsNumber = rsmd.getColumnCount();
+				while (rs.next()) {
+			        for (int i = 1; i <= columnsNumber; i++) {
+			            if (i > 1) System.out.print(",  ");
+			            String columnValue = rs.getString(i);
+			            System.out.print(rsmd.getColumnName(i) + " " + columnValue);
+			        }
+			        System.out.println("");
+			    }
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	 }
 	 
 	 public void getOpenTakeouts(Yelp yelp, String datetime, String zip, String city, String addr) {
@@ -335,6 +363,7 @@ public class Yelp {
 						 if (name.equals("")) {
 							 parser.next();
 							 name = parser.getString();
+							 name = name.replace("'", "");
 						 } else {
 							 writer.write(name + "\n");
 							 name = "";
@@ -342,6 +371,8 @@ public class Yelp {
 					 }
 				 }
 			}
+			is.close();
+			writer.close();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (MalformedURLException e) {
@@ -363,17 +394,23 @@ public class Yelp {
 		String publicKey = "cMLLju6kcObCipgIikk_ahHyYuSKrS6RN59eOOXy7BU";
 		String privateKey = "dsrtGpE_h_-K9jX7nPKUcK80IJDQhQd3XGTSvGQ3LWQ";
 	
-		OrderIn orderin = new OrderIn(publicKey, privateKey);
-		orderin.parseJson("ASAP", "02139", "Cambridge", "320 Memorial Drive");
+		yelp.getOpenTakeouts(yelp, "ASAP", "02139", "Cambridge", "320 Memorial Drive");
+		//OrderIn orderin = new OrderIn(publicKey, privateKey);
+		//orderin.parseJson("ASAP", "02139", "Cambridge", "320 Memorial Drive");
 		//yelp.insertFood(yelp, "1-12+4:30", "02139", "Cambridge", "320 Memorial Drive");
 		//String rating = yelp.findYelpRating(yelp, "Blackjack Pasta", "52 Queensberry St, Boston, MA");
 		//System.out.println(rating);
-		HashMap<String, Object[]> arguments = new HashMap<String, Object[]>();
+		/*HashMap<String, Object[]> arguments = new HashMap<String, Object[]>();
+		Float[] priceRange = {new Float(args[0]), new Float(args[1])};
+		String rating = args[2];
+		String[] ethnic = {args[3], args[4]};
+		String[] exclude = {args[5], args[6]};*/
 		Float[] priceRange = {new Float(10), new Float(20)};
-		arguments.put("priceRange", priceRange);
-		yelp.makeRecommendations(arguments);
-		
-		   
-		yelp.getYelpRatings(yelp, "OrderInRestaurants.txt");
+		//arguments.put("priceRange", priceRange);
+		String rating = "4";
+		String[] ethnic = {"American", "Chinese"};
+		String[] exclude = {"brocoli", "chicken"};
+		yelp.makeRecommendations(priceRange, rating, ethnic, exclude);
+		//yelp.getYelpRatings(yelp, "OrderInRestaurants.txt");
 	 }
 }

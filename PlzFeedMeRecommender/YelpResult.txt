@@ -1,0 +1,34 @@
+Zoe's	3.5
+Mela	4.0
+Sunset Cafe	3.5
+Les Amis	5.0
+Moksa	3.0
+Chicago Pizza	2.0
+Olecito	4.0
+Aman Place	3.5
+ZuZu	3.5
+Thelonious Monkfish	3.5
+Crazy Dough's Pizza	3.5
+Bombay Cafe	3.5
+Cafe 472	3.0
+India Quality Restaurant	4.0
+Mass Chicken	2.5
+Beijing Tokyo	3.0
+Beijing & Toyko	3.5
+Mama Gina's Pizza	3.5
+Shalimar of India	3.0
+Cambridge Pizzeria	4.5
+Sushi Express	3.5
+Samurai Express	3.5
+Anytime Pizza	2.5
+Olive Cafe	3.5
+Mona Lisa Pizza &  Grill	3.5
+Cambridge Coffee & Pizza Shop	2.5
+Curry Thai	3.5
+Ultimate Pizza & Wings	3.5
+Mangia Neapolitan Pizzeria	3.5
+Osushi	3.0
+Mela	4.0
+Cafe Sushi	4.0
+Patty Chen's Dumpling Room	3.0
+Dosa Factory	3.0
