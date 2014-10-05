@@ -1,0 +1,210 @@
+html
+  include head
+  body
+    include navbar
+    #order-box
+      #ordering-progress
+        span#find-food-prog.food-prog.food-prog-cur find
+        i.fa.fa-circle.fa-padding-both.xsmall
+        span#choose-food-prog.food-prog choose
+        i.fa.fa-circle.fa-padding-both.xsmall
+        span#order-food-prog.food-prog order
+      #order
+        #find-food-buttons.food-buttons
+          form#find-food-form.form-inline(parsley-validate='')
+            label Deliver to
+            #accordion.panel-group
+              #del-addr-btn.btn-group(onclick='$("#del-addr-btn").css("display", "inline-block");')
+                button#select-del-addr.btn.btn-default.dropdown-toggle.order(type='button', data-toggle='dropdown')
+                  span#del-addr-selected.button-contents
+                    | Delivery address
+                  .caret.pull-right
+                ul#del-addr-list.dropdown-menu
+                  li
+                    a(onclick='selectAddr("home", "del-"); removeDelAddrError(); return false;')
+                      | home
+                      // TODO: remove this for prod
+                  li
+                    a(data-parent='#accordion', onclick='addDelAddrReqs();\
+                    $("#collapse-del-addr").collapse("show");\
+                    $("#collapseBudget").collapse("hide");\
+                    $("#del-addr-error").hide();\
+                    return false;')
+                      i.fa.fa-plus.fa-padding-right
+                      | Add a new address
+              ul#del-addr-error.parsley-error-list(style='display: none;')
+                li.required(style='display: list-item;')
+                  | Choose a delivery address
+              #collapse-del-addr.panel-collapse.collapse.under-dropdown
+                .form-group
+                  label(for='nick') Address nickname
+                  input#del-addr-nick(type='text', placeholder='home/work/anne"s')
+                .form-group
+                  label(for='addr') Address
+                  input#del-addr(type='text', placeholder='1 Main St')
+                .form-group
+                  label(for='city') City
+                  input#del-city(type='text', placeholder='Boston')
+                .form-group
+                  label(for='state') State
+                  input#del-state(type='text', placeholder='MA')
+                .form-group
+                  label(for='zip') Zip
+                  input#del-zip(type='text', placeholder='12345')
+                .form-group
+                  label(for='phone') Phone
+                  input#del-phone(type='text', placeholder='1234567890')
+                button#new-del-addr.add-info(type='submit', data-toggle='collapse', data-parent='#accordion', onclick='addAddr(true); return false;')
+                  | Add address
+                a#cancel-new-del-addr.cancel(href='#collapse-del-addr', data-toggle='collapse', data-parent='#accordion', onclick='$("#collapseBudget").collapse("show");\
+                removeDelAddrReqs();')
+                  | Cancel
+              // collapse-addr
+            // panel-group
+            #accordion.panel-group
+              #collapseBudget.panel-collapse.collapse.in
+                label Budget
+                #budget-div
+                  span.dollar-sign $
+                  input#budget.form-control(type='text', value='20.00', parsley-required='true', parsley-type='number', onclick='$("#budget").val("");')
+                //
+                        <tr><td>
+                          <h3>
+                            Delivery date:
+                          </h3>
+                        <td>
+                          <label class='radio-inline'>
+                            <input type="radio" name='del-time' value='now'>Now 
+                          </label>
+                          <label class='radio-inline'>
+                            <input type="radio" name='del-time' value='future'>Future 
+                          </label>
+                    
+                input#find-food.food(type='submit', value='Find food near me!', onclick='checkDelAddr(); return false;')
+        #choose-food-buttons.food-buttons(style='display: none;')
+          .choose-section
+            label Restaurant
+            #restaurant-name.choose-values
+              | McDonald's
+          .choose-section
+            label Order
+            #choose-order.choose-values
+              ul#choose-order-list
+                li
+                  | Hamburger
+                li
+                  | Fries
+                li
+                  | Onion rings
+                li
+                  | Pop
+          #price.choose-section
+            label Price
+            #choose-price.choose-values
+              | $10.44
+          #accordion.panel-group
+            #collapseChoose.panel-collapse.collapse.in
+              form#choose-food-form.form-inline
+                button#choose-refresh(type='button', title='find different food')
+                  i.fa.fa-refresh
+                input#choose-food(type='submit', value='I want this', onclick='showOrder(); return false;')
+              // choose food form
+            // collapse-order
+          // panel-group
+          #accordion.panel-group
+            #collapseOrder.panel-collapse.collapse
+              #order-food-buttons.food-buttons
+                form#order-form.form-inline(parsley-validate='')
+                  label Charge
+                  #add-card-btn.btn-group(onclick='$("#add-card-btn").css("display", "inline-block");')
+                    button#select-card.btn.btn-default.dropdown-toggle.order(type='button', data-toggle='dropdown')
+                      span#card.button-contents
+                        | Credit card
+                      .caret.pull-right
+                    ul#card-list.dropdown-menu
+                      li
+                        a(data-toggle='collapse', data-parent='#accordion', onclick='addCardReqs();\
+                        $("#collapseCard").collapse("show");\
+                        $("#collapseOrderButton").collapse("hide");\
+                        $("#card-error").hide();\
+                        return false;')
+                          i.fa.fa-plus.fa-padding-right
+                          | Add a new credit card
+                  ul#card-error.parsley-error-list(style='display: none;')
+                    li.required(style='display: list-item;')
+                      | Choose a credit card
+                  #collapseCard.panel-collapse.collapse.under-dropdown
+                    .form-group
+                      label(for='card-nick') Card nickname
+                      input#card-nick(type='text', placeholder='visa/mastercard/anne"s')
+                    .form-group
+                      label(for='card-name') Name on card
+                      input#card-name(type='text', placeholder='John Doe')
+                    .form-group
+                      label(for='card-number') Card number
+                      input#card-number(type='text', placeholder='4242 4242 4242 4242')
+                    .form-group
+                      label(for='cvc') CVC security code
+                      input#card-cvc(type='text', placeholder='123')
+                    .form-group
+                      label#expiry(for='expiry') Expiry month/year
+                      #expiry-div
+                        input#card-expiry-mo.expiry(type='text', maxlength='2', placeholder='01')
+                        span#expiry-slash /
+                        input#card-expiry-yr.expiry(type='text', maxlength='4', placeholder='2017')
+                    .form-group
+                      label(for='card-type') Card type
+                      input#card-type(type='text', placeholder='ie Visa, MasterCard')
+                    .form-group.panel-group
+                      label(for='bill-addr') Billing address
+                      .btn-group
+                        button#select-bill-addr.btn.btn-default.dropdown-toggle.order(type='button', data-toggle='dropdown')
+                          span#bill-addr-selected.button-contents
+                            | Billing address
+                          .caret.pull-right
+                        ul#bill-addr-list.dropdown-menu
+                          li
+                            a(data-toggle='collapse', data-parent='#accordion', href='#collapse-bill-addr', onclick='addBillAddrReqs(); return false;')
+                              i.fa.fa-plus.fa-padding-right
+                              | Add a new address
+                      #collapse-bill-addr.panel-collapse.collapse.under-dropdown
+                        .form-group
+                          label(for='nick') Address nickname
+                          input#bill-addr-nick(type='text', placeholder='home/work/anne"s')
+                        .form-group
+                          label(for='addr') Address
+                          input#addr(type='text', placeholder='1 Main St')
+                        .form-group
+                          label(for='city') City
+                          input#city(type='text', placeholder='Boston')
+                        .form-group
+                          label(for='state') State
+                          input#state(type='text', placeholder='MA')
+                        .form-group
+                          label(for='zip') Zip
+                          input#zip(type='text', placeholder='12345')
+                        .form-group
+                          label(for='phone') Phone
+                          input#phone(type='text', placeholder='1234567890')
+                        button#new-bill-addr.add-info(type='submit', data-toggle='collapse', data-parent='#accordion', href='#collapse-bill-addr', onclick='addAddr(false); return false;')
+                          | Add address
+                      // collapse-addr
+                    // panel-group
+                    button#new-card.add-info(type='submit', data-toggle='collapse', data-parent='#accordion', onclick='addCard(); return false;')
+                      | Add card
+                    a#cancel-new-card.cancel(href='#collapseCard', data-parent='#accordion', onclick='$("#collapseCard").collapse("hide");\
+                    $("#collapseOrderButton").collapse("show");\
+                    removeCardReqs();')
+                      | Cancel
+                  // collapse-addr
+                  .panel-group
+                    #collapseOrderButton.panel-collapse.collapse.in
+                      input#order.food(type='submit', value='Order!', onclick='checkOrder(); return false;')
+                    // collapse-order-btn
+                  // panel-group
+                // order food form
+              // order-food-buttons
+            // collapse-order
+          // panel-group
+        // order
+        script(src='https://code.jquery.com/jquery.js')
