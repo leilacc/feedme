@@ -45,7 +45,8 @@ button#index {
 }
 
 p.xsmall-content {
-  margin: 14px 0;
+  font-size: 22px;
+  margin: 14px 0 30px;
 }
 
 span.xsmall-header {
@@ -92,6 +93,10 @@ span.xsmall-hidden-content {
   }
 
   p.xsmall-content {
+    display: none;
+  }
+
+  span.inputspace {
     display: none;
   }
 }

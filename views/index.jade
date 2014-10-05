@@ -7,7 +7,7 @@ html
          rel='stylesheet', type='text/css')
     link(href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css",
          rel="stylesheet")
-    title nomm
+    title nomm!
   body#home
     h1 nomm!
     #home
@@ -36,15 +36,17 @@ html
                 i.fa-li.fa.fa-check-square
                 | We'll
                 strong  deliver
-        p.xsmall-content Food at your door in 1 tap
+        p.xsmall-content Eating has never been easier!
         form.front-login(parsley-validate='')
           input.index(type='email', name='email',
                       parsley-type='email', placeholder='email')
-          | &nbsp
+          span.inputspace
+            | &nbsp
           input.index(type='password', name='password',
                       placeholder='password', autocomplete='off',
                       parsley-minlength='5')
-          | &nbsp
+          span.inputspace
+            | &nbsp
           button#index(type='submit', name='login') Order now
     #fill-bottom
     script(src="https://code.jquery.com/jquery.js")
