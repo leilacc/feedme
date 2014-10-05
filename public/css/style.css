@@ -58,7 +58,7 @@ p.subtitle {
 
 .navbar {
   background-color: #4ABB7D;
-  padding: 15px 55px;
+  padding: 15px 55px 15px;
   margin-bottom: 15px;
 }
 
@@ -95,7 +95,7 @@ button.navbar-toggle {
   background-color: inherit;
   color: #fff;
   float: right;
-  font-size: 19px;
+  font-size: 18px;
 }
 
 nav a {
@@ -207,6 +207,10 @@ ul.parsley-error-list {
   float: left;
   font-size: 14px;
   list-style-type: none;
-  margin-bottom: 7px;
+  margin-bottom: 0px;
   padding-left: 0px;
+}
+
+label {
+  padding-top: 12px;
 }

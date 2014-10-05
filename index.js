@@ -12,13 +12,23 @@ app.use(express.static(path.join(__dirname, 'public'))); // use html files in te
 
 // Routing
 app.get('/', function (req, res) {
-  res.send('<html><body><h1>Hello World</h1></body></html>');
-});
-
-app.get('/feedme', function (req, res) {
   res.render('index');
 });
 
+app.post('/', function (req, res) { //login
+  // TODO: check login
+  // req.email
+  // req.password
+  res.redirect('/order');
+});
+
+app.get('/order', function (req, res) {
+  res.render('order');
+});
+
+app.post('/order', function (req, res) { //login
+  res.render('choose');
+});
 // 404
 app.use(function (req,res) { //1
     res.render('404', {url:req.url}); //2

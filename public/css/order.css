@@ -64,8 +64,7 @@ div.choose-section {
 }
 
 div.choose-values {
-  display: inline;
-  float: right;
+  display: block;
   font-size: 16px;
   padding-top: 10px;
 }
@@ -89,6 +88,14 @@ input.food {
 
 input#choose-food {
   width: 156px;
+}
+
+input#card-expiry-mo {
+  width: 44px;
+}
+
+input#card-expiry-yr {
+  width: 127px;
 }
 
 button#new-del-addr {
@@ -120,4 +127,27 @@ ul#choose-order-list > li{
   clear: both;
   display: block;
   float: right;
+}
+
+#restaurant-name {
+  font-weight: bold;
+  padding: 10px 0px;
+}
+
+table {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+tr.total {
+  border-top: 1px solid;
+}
+
+td.price {
+  padding-bottom: 4px;
+  text-align: right;
+}
+
+label#budget-label {
+  padding-top: 12px;
 }

@@ -1,3 +1,5 @@
+make the most recently used value for address/card the default in the dropdowns
+
 fix price formatting on choose form
 
 finish order form
@@ -6,12 +8,6 @@ finish order form
   -confirmation page
 
 make food profile page
-
-serve dynamically
-
-serve on node
-
-redo front page
 
 fix slowness perhaps by just querying database
 add in recommendations based on ratings

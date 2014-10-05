@@ -172,7 +172,7 @@ function removeDelAddrReqs() {
 function checkDelAddr() {
   // Ensure that a delivery address has been chosen before submitting the
   // 'Find food' form
-  // TODO: submit form to server asynchronously
+  // TODO: submit form to server asynchronously and get back potential options
   if ($('#del-addr-selected').text().trim() == 'Delivery address') {
     // Button text has not changed, del addr has not been selected
     $('#del-addr-btn').css('display', 'block');
@@ -197,6 +197,8 @@ function transition(prevPrefix, nextPrefix) {
 
   $('#' + prevPrefix + '-food-buttons').hide();
   $('#' + nextPrefix + '-food-buttons').fadeIn();
+
+  window.history.pushState(nextPrefix, nextPrefix, '/' + nextPrefix);
 }
 
 function showOrder() {
@@ -317,3 +319,11 @@ function checkOrder() {
   }
   return true;
 }
+
+window.onpopstate = function(e){
+      if(e.state){
+                console.log(e.state);
+                document.getElementById("order-box").innerHTML = e.state.html;
+                        document.title = e.state.pageTitle;
+                            }
+};

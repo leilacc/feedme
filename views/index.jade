@@ -1,7 +1,9 @@
 html
-  include head
+  head
+    include head_links
+    link(href='css/index.css', rel='stylesheet')
   body#home
-    include navbar
+    h1 nomm!
     #home
       #home-content
         p.strong
@@ -28,17 +30,15 @@ html
                 i.fa-li.fa.fa-check-square
                 | We'll
                 strong  deliver
-        p.xsmall-content Eating has never been easier!
-        form.front-login(method='post', action='', parsley-validate='')
+        p.xsmall-content Food at your door in 1 tap
+        form.front-login(parsley-validate='')
           input.index(type='email', name='email',
                       parsley-type='email', placeholder='email')
-          span.inputspace
-            | &nbsp
+          | &nbsp
           input.index(type='password', name='password',
                       placeholder='password', autocomplete='off',
                       parsley-minlength='5')
-          span.inputspace
-            | &nbsp
+          | &nbsp
           button#index(type='submit', name='login') Order now
     #fill-bottom
     include scripts

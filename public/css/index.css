@@ -64,6 +64,15 @@ span.xsmall-hidden-content {
   display: none;
 }
 
+ul.navbar-nav, button.navbar-toggle {
+  display: none;
+}
+
+.navbar {
+  margin-bottom: 0px;
+  padding-bottom: 8px;
+}
+
 @media (max-width: 767px) {
   h1 {
     font-size: 24px;
