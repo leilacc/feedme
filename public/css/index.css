@@ -1,0 +1,107 @@
+body#home {
+  background-color: #4ABB7D;
+  color: #333;
+}
+
+h1 {
+  margin: 18px 0px 12px 48px;
+  padding-bottom: 7px;
+}
+
+div#home {
+  padding-bottom: 22px;
+  padding-top: 12px;
+}
+
+div#home-content {
+  margin: 40px 0 40px 24%;
+}
+
+div.loginbox {
+  padding: 25px 0px 30px 50px;
+  width: 492px;
+}
+
+div#fill-bottom {
+  background-color: #D7F1E3;
+  height: 100%;
+}
+
+form.front-login {
+  margin-top: 14px;
+}
+
+form.login button {
+  margin: 10px 3px;
+  width: 426px;
+}
+
+input.index {
+  width: 200px;
+}
+
+button#index {
+  width: 125px;
+}
+
+p.xsmall-content {
+  margin: 14px 0;
+}
+
+span.xsmall-header {
+  display: block;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 28px;
+}
+
+span.xsmall-subheader {
+  font-size: 30px;
+}
+
+span.xsmall-hidden-content {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  div#home-content {
+    margin: 20px auto 10px auto;
+    width: 385px;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  form.front-login {
+    margin: auto;
+    margin-top: 40px;
+    width: 200px;
+  }
+
+  input.index {
+    display: block;
+  }
+
+  button#index {
+    width: 200px;
+  }
+
+  p.xsmall-content {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  span.xsmall-header {
+    font-size: 30px;
+  }
+
+  span.xsmall-subheader {
+    font-size: 23px;
+  }
+}

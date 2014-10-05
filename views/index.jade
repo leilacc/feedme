@@ -1,0 +1,59 @@
+html
+  head
+    link(href="css/bootstrap.css", rel="stylesheet", media="screen")
+    link(href='css/style.css', rel='stylesheet')
+    link(href='css/index.css', rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Lato:400,700|Fugaz+One',
+         rel='stylesheet', type='text/css')
+    link(href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css",
+         rel="stylesheet")
+    title nomm
+  body#home
+    h1 nomm!
+    #home
+      #home-content
+        p.strong
+          span.xsmall-header
+            | Delicious delivery
+          span.xsmall-subheader
+            |  for busy people like you
+        span.xsmall-hidden-content
+          p.
+            Tell us when you're hungry and we'll do the rest:
+          .moreinfo
+            ul.fa-ul
+              li
+                i.fa-li.fa.fa-check-square
+                | We'll
+                strong  find
+                |  a top-rated restaurant
+              li
+                i.fa-li.fa.fa-check-square
+                | We'll
+                strong  order
+                |  food you'll love
+              li
+                i.fa-li.fa.fa-check-square
+                | We'll
+                strong  deliver
+        p.xsmall-content Food at your door in 1 tap
+        form.front-login(parsley-validate='')
+          input.index(type='email', name='email',
+                      parsley-type='email', placeholder='email')
+          | &nbsp
+          input.index(type='password', name='password',
+                      placeholder='password', autocomplete='off',
+                      parsley-minlength='5')
+          | &nbsp
+          button#index(type='submit', name='login') Order now
+    #fill-bottom
+    script(src="https://code.jquery.com/jquery.js")
+    script(src="js/bootstrap.min.js")
+    script(src="js/parsley.min.js")
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-28361374-4', 'leila.cc');
+      ga('send', 'pageview');

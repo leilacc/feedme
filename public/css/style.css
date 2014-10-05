@@ -1,0 +1,212 @@
+body {
+  color: #444;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  margin: 0px;
+  background-color: #EEFBF5;
+}
+
+@media (max-width: 480px) {
+  body {
+    background-image: none;
+  }
+}
+
+h1 {
+  color: #fff;
+  font-family: 'Fugaz One', Helvetica, Arial, sans-serif;
+  font-size: 36px;
+
+  margin: 18px 0px 58px 40px;
+}
+
+@media (max-width: 767px) {
+  h1 {
+    padding-top: 7px;
+  }
+}
+
+h2 {
+  color: #444;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 40px;
+  font-weight: normal;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+h3 {
+  color: #333;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  margin-right: 20px;
+  padding-top: 6px;
+}
+
+p {
+  margin: 0px;
+}
+
+p.strong {
+  font-size: 40px;
+}
+
+p.subtitle {
+  font-size: 24px;
+}
+
+.navbar {
+  background-color: #4ABB7D;
+  padding: 15px 55px;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 767px) {
+  .navbar {
+    padding: 12px 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px 12px;
+  }
+}
+
+.navbar h1 {
+  font-size: 24px;
+  margin: 0px 0px 0px 4px;
+}
+
+.navbar a:hover {
+  text-decoration: none;
+}
+
+.navbar-header {
+  background-color: inherit;
+}
+
+button.navbar-toggle {
+  width: auto;
+}
+
+#navbar-collapse {
+  background-color: inherit;
+  color: #fff;
+  float: right;
+  font-size: 19px;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+div#nav-contents #nav-links {
+  background-color: inherit;
+  color: #fff;
+  float: right;
+  font-size: 16px;
+  padding: 6px 30px;
+}
+
+div {
+  background-color: #fff;
+}
+
+div.page-content {
+  padding: 20px inherit;
+}
+
+div.moreinfo {
+  font-size: 18px;
+  padding: 14px 30px 4px 65px;
+}
+
+div.blurb {
+  margin: auto;
+  padding: 39px 40px 55px;
+}
+
+div.unsupportedbox {
+  padding: 39px 20px 55px 91px;
+  width: 580px;
+}
+
+form {
+  margin-bottom: 0px;
+}
+
+form input, button {
+  border: 1px solid #aaa;
+  color: #444;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
+
+  font-size: 17px;
+  height: 40px;
+  margin-bottom: 4px;
+  padding: 0px 10px;
+  width: 100%;
+}
+
+form input[type='submit'], form button {
+  background-color: #E74C54;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  padding: 7px 14px 7px 12px;
+  width: 100%;
+
+  # Removes blue glow
+  outline: none;
+  border:none !important;
+  box-shadow:none !important;
+}
+
+form input[type='submit']:hover, button:hover {
+  background-color: #D0444C;
+}
+
+form button.add-info {
+  background-color: #6BC971;
+  width: 100%;
+}
+
+form button.add-info:hover {
+  background-color: #60B566;
+}
+
+button.clicked {
+  cursor: auto;
+}
+
+form.waitlist button {
+  width: 500px;
+}
+
+span.button-contents {
+  float: left;
+}
+
+i.fa-padding-right {
+  padding-right: 8px;
+}
+
+i.fa-padding-both {
+  padding: 0px 11px;
+}
+
+i.xsmall {
+  font-size: 12px;
+}
+
+ul.parsley-error-list {
+  color: #E74C54;
+  float: left;
+  font-size: 14px;
+  list-style-type: none;
+  margin-bottom: 7px;
+  padding-left: 0px;
+}

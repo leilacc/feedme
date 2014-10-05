@@ -1,0 +1,123 @@
+div#order-box {
+  background-color: #eee;
+  border-radius: 3px;
+  margin: 60px auto 100px;
+  padding: 6px;
+  width: 312px;
+}
+
+div#ordering-progress {
+  background-color: #eee;
+  color: #ccc;
+  font-size: 17px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 14px 48px;
+  width: 300px;
+}
+
+span.food-prog-cur {
+  color: #555;
+  font-weight: bold;
+}
+
+div#order {
+  border-radius: 3px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 20px;
+  padding-top: 14px;
+  width: 300px;
+}
+
+div.food-buttons {
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+}
+
+div#del-addr-btn {
+  display: block;
+}
+
+div#collapse-del-addr {
+  margin-bottom: 20px;
+}
+
+span.dollar-sign {
+  color: #269EAD;
+  font-size: 17px;
+  margin-left: 12px;
+}
+
+div#budget-div {
+  border: 1px solid #269EAD;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+
+div#price {
+  margin-bottom: 24px;
+}
+
+div.choose-section {
+}
+
+div.choose-values {
+  display: inline;
+  float: right;
+  font-size: 16px;
+  padding-top: 10px;
+}
+
+input#budget {
+  background-color: #fff;
+  border: none;
+  color: #269EAD;
+  display: inline;
+  font-size: 17px;
+  height: 40px;
+  margin-bottom: 0px;
+  padding-left: 0px;
+  -webkit-box-shadow: none;
+  width: 161px;
+}
+
+input.food {
+  margin-top: 16px;
+}
+
+input#choose-food {
+  width: 156px;
+}
+
+button#new-del-addr {
+  margin-top: 10px;
+}
+
+button#choose-refresh {
+  background-color: #EABE65;
+  display: inline;
+  width: 39px;
+}
+
+button#choose-refresh:hover {
+  background-color: #E8B754;
+}
+
+a.cancel {
+  color: #444;
+  float: right;
+  font-size: 14px;
+}
+
+ul#choose-order-list {
+  margin-bottom: 0px;
+  padding-left: 20px;
+}
+
+ul#choose-order-list > li{
+  clear: both;
+  display: block;
+  float: right;
+}
